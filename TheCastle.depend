@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1553457501 source:/home/pablo/Source/FV/TheCastle/TheCastle/main.cpp
+	<SFML/Graphics.hpp>
+
+1553458780 source:/home/pablo/Source/FV/TheCastle/TheCastle/src/Juego.cpp
+	"Juego.h"
+
+1553458670 /home/pablo/Source/FV/TheCastle/TheCastle/include/Juego.h
+	"SFML/Graphics.hpp"
+
+1553460102 source:/home/pablo/Source/FV/TheCastle/main.cpp
+	<SFML/Graphics.hpp>
+	"Juego.h"
+
+1553458932 /home/pablo/Source/FV/TheCastle/include/Juego.h
+	"SFML/Graphics.hpp"
+
+1553459553 source:/home/pablo/Source/FV/TheCastle/src/Juego.cpp
+	"Juego.h"
+
