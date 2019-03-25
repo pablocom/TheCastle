@@ -53,5 +53,3 @@ void Juego::update()
 {
 
 }
-
-

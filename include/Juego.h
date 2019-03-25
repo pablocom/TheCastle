@@ -25,6 +25,7 @@ class Juego
         Clock * clock1;
         Time * time1;
 
+
 };
 
 #endif // JUEGO_H
