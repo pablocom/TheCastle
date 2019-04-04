@@ -2,6 +2,7 @@
 #define JUEGO_H
 
 #include "SFML/Graphics.hpp"
+#include "Jugador.h"
 
 using namespace sf;
 
@@ -19,6 +20,8 @@ class Juego
 
         Texture * txt1;
         Sprite * spr1;
+
+        Jugador * j1;
 
         int fps = 60;
         bool gameOver = false;

@@ -1,5 +1,6 @@
 #include "Juego.h"
 
+
 Juego::Juego(Vector2i dimension, std::string title)
 {
     //ctor
@@ -20,6 +21,7 @@ Juego::Juego(Vector2i dimension, std::string title)
 
 void Juego::inicializar()
 {
+    j1 = new Jugador();
     clock1 = new Clock();
     time1 = new Time();
 }
@@ -45,6 +47,9 @@ void Juego::dibujar()
     window->clear();
 
     window->draw(*spr1);
+
+    j1->dibujar(window);
+    j1->animar();
 
     window->display();
 }
