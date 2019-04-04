@@ -3,6 +3,7 @@
 
 #include "SFML/Graphics.hpp"
 #include "Jugador.h"
+#include "Teclado.h"
 
 using namespace sf;
 
@@ -18,8 +19,7 @@ class Juego
     private:
         RenderWindow * window;
 
-        Texture * txt1;
-        Sprite * spr1;
+        Teclado * teclado;
 
         Jugador * j1;
 

@@ -10,17 +10,12 @@ Juego::Juego(Vector2i dimension, std::string title)
 
     inicializar();
 
-    txt1 = new Texture;
-
-    txt1->loadFromFile("assets/mapa.png");
-
-    spr1 = new Sprite(*txt1);
-
     gameLoop();
 }
 
 void Juego::inicializar()
 {
+    teclado = new Teclado();
     j1 = new Jugador();
     clock1 = new Clock();
     time1 = new Time();
@@ -34,7 +29,15 @@ void Juego::gameLoop()
 
         if(time1->asSeconds() > (1 / fps))
         {
+
+
+            while(window->pollEvent(*teclado->evento)) {
+
+                teclado->procesarEventos();
+            }
+
             update();
+
 
             dibujar();
             clock1->restart();
@@ -45,8 +48,6 @@ void Juego::gameLoop()
 void Juego::dibujar()
 {
     window->clear();
-
-    window->draw(*spr1);
 
     j1->dibujar(window);
     j1->animar();

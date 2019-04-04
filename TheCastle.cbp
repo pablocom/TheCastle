@@ -44,9 +44,11 @@
 		<Unit filename="cb.bmp" />
 		<Unit filename="include/Juego.h" />
 		<Unit filename="include/Jugador.h" />
+		<Unit filename="include/Teclado.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Juego.cpp" />
 		<Unit filename="src/Jugador.cpp" />
+		<Unit filename="src/Teclado.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
