@@ -12,12 +12,12 @@
 	<SFML/Graphics.hpp>
 	"Juego.h"
 
-1554410595 /home/pablo/Source/FV/TheCastle/include/Juego.h
+1554411428 /home/pablo/Source/FV/TheCastle/include/Juego.h
 	"SFML/Graphics.hpp"
 	"Jugador.h"
 	"Teclado.h"
 
-1554410465 source:/home/pablo/Source/FV/TheCastle/src/Juego.cpp
+1554410864 source:/home/pablo/Source/FV/TheCastle/src/Juego.cpp
 	"Juego.h"
 
 1554409382 /home/pablo/Source/FV/TheCastle/include/Jugador.h

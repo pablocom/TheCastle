@@ -19,8 +19,6 @@ class Juego
     private:
         RenderWindow * window;
 
-        Teclado * teclado;
-
         Jugador * j1;
 
         int fps = 60;
