@@ -15,7 +15,6 @@ Juego::Juego(Vector2i dimension, std::string title)
 
 void Juego::inicializar()
 {
-    teclado = new Teclado();
     j1 = new Jugador();
     clock1 = new Clock();
     time1 = new Time();
@@ -30,7 +29,7 @@ void Juego::gameLoop()
         if(time1->asSeconds() > (1 / fps))
         {
 
-
+            procesarEventos();
             update();
 
             dibujar();
@@ -51,10 +50,10 @@ void Juego::dibujar()
 
 void Juego::update()
 {
-
+    j1->update();
 }
 
 void Juego::procesarEventos()
 {
-    teclado->procesarEventos(window);
+    j1->procesarEventos(window);
 }

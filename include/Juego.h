@@ -18,8 +18,6 @@ class Juego
         void dibujar();
 
     private:
-        Teclado * teclado;
-
         RenderWindow * window;
 
         Jugador * j1;
