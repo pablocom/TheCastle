@@ -13,10 +13,13 @@ class Juego
         Juego(Vector2i dimension, std::string title);
         void inicializar();
         void gameLoop();
+        void procesarEventos();
         void update();
         void dibujar();
 
     private:
+        Teclado * teclado;
+
         RenderWindow * window;
 
         Jugador * j1;

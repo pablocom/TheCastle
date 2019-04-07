@@ -12,7 +12,7 @@
 	<SFML/Graphics.hpp>
 	"Juego.h"
 
-1554411428 /home/pablo/Source/FV/TheCastle/include/Juego.h
+1554657264 /home/pablo/Source/FV/TheCastle/include/Juego.h
 	"SFML/Graphics.hpp"
 	"Jugador.h"
 	"Teclado.h"
@@ -31,6 +31,6 @@
 	<iostream>
 	"Teclado.h"
 
-1554410890 /home/pablo/Source/FV/TheCastle/include/Teclado.h
+1554657342 /home/pablo/Source/FV/TheCastle/include/Teclado.h
 	"SFML/Graphics.hpp"
 
