@@ -28,6 +28,7 @@ class Juego
         Time * time1;
 
 
+
 };
 
 #endif // JUEGO_H
