@@ -8,13 +8,14 @@ Mapa::Mapa()
     mapTexture = new Texture();
 
     load();
+
 }
 
 void Mapa::load()
 {
 
     XMLDocument doc;
-    XMLError error = doc.LoadFile("assets/maps/mapa1.tmx");
+    XMLError error = doc.LoadFile("assets/maps/nivel1.tmx");
 
     if(error)
     {
@@ -31,19 +32,12 @@ void Mapa::load()
     cout<<"Width: " << width << " Height: " << height <<endl;
     cout<<"Tilewidth: " << tileWidth << " Tileheight: " << tileHeight <<endl;
 
-    XMLElement * tileset = map->FirstChildElement("tileset");
-    tileset->QueryIntAttribute("columns", &tilesetColumns);
 
-    XMLElement * img = tileset->FirstChildElement("image");
-    img->QueryStringAttribute("source", &textureFileName);
+    tilesetColumns = 33;
 
-    const char * filePath = "assets/maps/";
 
-    char * fullText = new char[strlen(filePath)+strlen(textureFileName)+1];
-    strcpy(fullText,filePath);
-    strcat(fullText,textureFileName);
 
-    mapTexture->loadFromFile(fullText);
+    mapTexture->loadFromFile("assets/maps/tileset.png");
 
     XMLElement *layer = map->FirstChildElement("layer");
     while(layer)
@@ -63,6 +57,10 @@ void Mapa::load()
         for(int y = 0; y < height; y++)
         {
             tileMap[l][y] = new int[width];
+            for(int x = 0; x < width; x++)
+            {
+                tileMap[l][y][x] = 0; // inicializamos a 0 porque si no se vuelve loquisimo
+            }
         }
     }
 
@@ -78,6 +76,7 @@ void Mapa::load()
             {
                 for(int x = 0; x < width; x++)
                 {
+
                     tile->QueryIntAttribute("gid", &tileMap[l][y][x]);
                     tile = tile->NextSiblingElement("tile");
                 }
@@ -86,6 +85,11 @@ void Mapa::load()
         layer = layer->NextSiblingElement("layer");
     }
 
+
+    cout << "============ RESULTADO DE LECTURA =============" << endl;
+    cout << "Width del mapa -> " << width << endl;
+    cout << "Height del mapa -> " << height << endl;
+    cout << "===============================================" << endl;
 
     // for testing
     printTileMap();
@@ -137,14 +141,16 @@ void Mapa::setTileMapSprites()
             for(int x = 0; x < width; x++)
             {
 
-                int gid = tileMap[l][y][x]-1;
+                int gid = tileMap[l][y][x];
+
+                cout << "Iteracion del bucle" << x + 1 << endl;
 
                 if(gid > 0)
                 {
                     int xAux=gid%tilesetColumns, yAux=gid/tilesetColumns;
 
                     tilemapSprite[l][y][x] = new Sprite(*mapTexture);
-                    tilemapSprite[l][y][x]->setTextureRect(IntRect(xAux*tileWidth + (xAux-1) * 1, yAux*tileHeight + (yAux-1) * 1, tileWidth + 1, tileHeight + 1));
+                    tilemapSprite[l][y][x]->setTextureRect(IntRect((xAux-1)*tileWidth, yAux*tileHeight, tileWidth, tileHeight));
                     tilemapSprite[l][y][x]->setPosition(x*(tileWidth) - 1, y*(tileHeight) - 1);
                 } else {
                     tilemapSprite[l][y][x] = NULL;
@@ -160,7 +166,7 @@ void Mapa::draw(RenderWindow * window)
     {
         for(int y = 0; y < height; y++)
         {
-            for(int x = 0; x < height; x++)
+            for(int x = 0; x < width; x++)
             {
                 if(tilemapSprite[l][y][x] != NULL)
                 {

@@ -8,16 +8,14 @@ Juego::Juego(Vector2i dimension, std::string title)
 
     window->setFramerateLimit(fps);
 
-    inicializar();
-
-    gameLoop();
-}
-
-void Juego::inicializar()
-{
     j1 = new Jugador();
     clock1 = new Clock();
     time1 = new Time();
+
+    mapa = new Mapa();
+
+
+    gameLoop();
 }
 
 void Juego::gameLoop()
@@ -41,6 +39,8 @@ void Juego::gameLoop()
 void Juego::dibujar()
 {
     window->clear();
+
+    mapa->draw(window);
 
     j1->dibujar(window);
     j1->animar();

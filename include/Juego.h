@@ -4,6 +4,7 @@
 #include "SFML/Graphics.hpp"
 #include "Jugador.h"
 #include "Teclado.h"
+#include "Mapa.h"
 
 using namespace sf;
 
@@ -11,7 +12,6 @@ class Juego
 {
     public:
         Juego(Vector2i dimension, std::string title);
-        void inicializar();
         void gameLoop();
         void procesarEventos();
         void update();
@@ -19,8 +19,8 @@ class Juego
 
     private:
         RenderWindow * window;
-
         Jugador * j1;
+        Mapa * mapa;
 
         int fps = 60;
         bool gameOver = false;
