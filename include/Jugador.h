@@ -21,6 +21,9 @@ class Jugador
 
         int spriteActive = 0;
         int * spritePositions;
+        int * spritePositionsReverse;
+
+        bool invertirSprite = false;
 
         Vector2f velocidad;
         Vector2f posicion;

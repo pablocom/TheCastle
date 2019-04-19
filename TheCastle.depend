@@ -12,19 +12,19 @@
 	<SFML/Graphics.hpp>
 	"Juego.h"
 
-1554823604 /home/pablo/Source/FV/TheCastle/include/Juego.h
+1555666323 /home/pablo/Source/FV/TheCastle/include/Juego.h
 	"SFML/Graphics.hpp"
 	"Jugador.h"
 	"Teclado.h"
 	"Mapa.h"
 
-1554823647 source:/home/pablo/Source/FV/TheCastle/src/Juego.cpp
+1555667198 source:/home/pablo/Source/FV/TheCastle/src/Juego.cpp
 	"Juego.h"
 
-1554660265 /home/pablo/Source/FV/TheCastle/include/Jugador.h
+1555669479 /home/pablo/Source/FV/TheCastle/include/Jugador.h
 	"SFML/Graphics.hpp"
 
-1554729250 source:/home/pablo/Source/FV/TheCastle/src/Jugador.cpp
+1555669610 source:/home/pablo/Source/FV/TheCastle/src/Jugador.cpp
 	<iostream>
 	"Jugador.h"
 
@@ -92,7 +92,7 @@
 	"tinyxml.h"
 	<windows.h>
 
-1554923353 source:/home/pablo/Source/FV/TheCastle/src/Mapa.cpp
+1555669288 source:/home/pablo/Source/FV/TheCastle/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 

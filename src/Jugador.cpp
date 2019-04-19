@@ -11,6 +11,7 @@ Jugador::Jugador()
     texture = new Texture();
     texture->loadFromFile("assets/sheet_hero_walk.png");
     sprite = new Sprite(*texture);
+    sprite->scale(.4, .4);
 
     clock = new Clock();
 
@@ -20,7 +21,13 @@ Jugador::Jugador()
     spritePositions[2] = 128;
     spritePositions[3] = 64;
 
-    velocidad.y = 2; // gravedad
+    spritePositionsReverse = new int[4];
+    spritePositionsReverse[0] = 64;
+    spritePositionsReverse[1] = 128;
+    spritePositionsReverse[2] = 192;
+    spritePositionsReverse[3] = 128;
+
+    velocidad.y = 0; // gravedad
 
     setSprite();
 }
@@ -32,12 +39,19 @@ void Jugador::dibujar(RenderWindow * window)
 
 void Jugador::setSprite()
 {
-    sprite->setTextureRect(IntRect(spritePositions[spriteActive], 0, 64, 64));
+    if(!invertirSprite)
+    {
+        sprite->setTextureRect(IntRect(spritePositions[spriteActive], 0, 64, 64));
+    }
+    else
+    {
+        sprite->setTextureRect(IntRect(spritePositionsReverse[spriteActive], 0, -64, 64));
+    }
 }
 
 void Jugador::animar()
 {
-    if(clock->getElapsedTime().asSeconds() > .3f) {
+    if(clock->getElapsedTime().asSeconds() > 0.4f) {
 
         if(true) {
 
@@ -72,11 +86,15 @@ void Jugador::procesarEventos(RenderWindow * window)
 
                 if(Keyboard::isKeyPressed(Keyboard::Left))
                 {
-                    velocidad.x = -2;
+                    invertirSprite = true;
+                    setSprite();
+                    velocidad.x = -1;
                 }
                 else if(Keyboard::isKeyPressed(Keyboard::Right))
                 {
-                    velocidad.x = 2;
+                    invertirSprite = false;
+                    setSprite();
+                    velocidad.x = 1;
                 }
 
                 break;

@@ -8,6 +8,11 @@ Juego::Juego(Vector2i dimension, std::string title)
 
     window->setFramerateLimit(fps);
 
+    view = new View();
+    view->reset(sf::FloatRect(0.f, 0.f, 320.f, 240.f));
+    view->setCenter(Vector2f(160.f, 120.f));
+    window->setView(*view);
+
     j1 = new Jugador();
     clock1 = new Clock();
     time1 = new Time();

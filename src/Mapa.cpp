@@ -92,7 +92,7 @@ void Mapa::load()
     cout << "===============================================" << endl;
 
     // for testing
-    printTileMap();
+    // printTileMap();
 
     setTileMapSprites();
 }
@@ -142,8 +142,6 @@ void Mapa::setTileMapSprites()
             {
 
                 int gid = tileMap[l][y][x];
-
-                cout << "Iteracion del bucle" << x + 1 << endl;
 
                 if(gid > 0)
                 {
