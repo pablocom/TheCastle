@@ -16,6 +16,7 @@ class Mapa
         void load();
         void setTileMapSprites();
         void draw(RenderWindow * window);
+        bool checkearColisiones(FloatRect rect);
 
     private:
         Texture* mapTexture;

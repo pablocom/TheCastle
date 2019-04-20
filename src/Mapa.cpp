@@ -150,7 +150,9 @@ void Mapa::setTileMapSprites()
                     tilemapSprite[l][y][x] = new Sprite(*mapTexture);
                     tilemapSprite[l][y][x]->setTextureRect(IntRect((xAux-1)*tileWidth, yAux*tileHeight, tileWidth, tileHeight));
                     tilemapSprite[l][y][x]->setPosition(x*(tileWidth) - 1, y*(tileHeight) - 1);
-                } else {
+                }
+                else
+                {
                     tilemapSprite[l][y][x] = NULL;
                 }
             }
@@ -173,4 +175,19 @@ void Mapa::draw(RenderWindow * window)
             }
         }
     }
+}
+
+bool Mapa::checkearColisiones(FloatRect rect)
+{
+    for(int y =0; y < height; y++)
+    {
+        for(int x = 0; x < width; x++)
+        {
+            if(tilemapSprite[0][y][x]->getGlobalBounds().intersects(rect))
+            {
+                return true;
+            }
+        }
+    }
+    return false;
 }
