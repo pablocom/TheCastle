@@ -33,11 +33,11 @@ Jugador::Jugador()
     velocidad.y = 0; // gravedad
 
     /**COLSIONES**/
-    std::vector<sf::Rect<float>> boxes;
-    boxes.push_back(FloatRect(sprite->getPosition().x + 10, sprite->getPosition().y + 10, 4, 10)); //arriba
-    boxes.push_back(FloatRect(sprite->getPosition().x + 10, sprite->getPosition().y + 10, 4, 10)); //derecha
-    boxes.push_back(FloatRect(sprite->getPosition().x + 10, sprite->getPosition().y + 10, 4, 10)); //abajo
-    boxes.push_back(FloatRect(sprite->getPosition().x + 10, sprite->getPosition().y + 10, 4, 10)); //izquierda
+    boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 14, 10, 3));   // arriba
+    boxes.push_back(FloatRect(sprite->getPosition().x + 14.5, sprite->getPosition().y + 16, 3, 7)); // derecha
+    boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 22.5, 10, 3)); // abajo
+    boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 16, 3, 7)); // izquierda
+
     setRectangles();
 
     setSprite();
@@ -46,6 +46,7 @@ Jugador::Jugador()
 void Jugador::dibujar(RenderWindow * window)
 {
     window->draw(*sprite);
+    drawColliders(window);
 }
 
 void Jugador::setSprite()
@@ -140,10 +141,12 @@ void Jugador::drawColliders(RenderWindow * window)
 
 void Jugador::setRectangles()
 {
+
+
     for(int i = 0; i < boxes.size(); i++)
     {
         rectangles.push_back(RectangleShape(Vector2f(boxes[i].width, boxes[i].height)));
-        rectangles[i].setFillColor(Color::Green);
+        rectangles[i].setFillColor(Color::Magenta);
         rectangles[i].setPosition(boxes[i].left, boxes[i].top);
     }
 }

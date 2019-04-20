@@ -18,14 +18,14 @@
 	"Teclado.h"
 	"Mapa.h"
 
-1555667198 source:/home/pablo/Source/FV/TheCastle/src/Juego.cpp
+1555755722 source:/home/pablo/Source/FV/TheCastle/src/Juego.cpp
 	"Juego.h"
 
 1555753755 /home/pablo/Source/FV/TheCastle/include/Jugador.h
 	"SFML/Graphics.hpp"
 	<vector>
 
-1555753734 source:/home/pablo/Source/FV/TheCastle/src/Jugador.cpp
+1555757206 source:/home/pablo/Source/FV/TheCastle/src/Jugador.cpp
 	<iostream>
 	"Jugador.h"
 
