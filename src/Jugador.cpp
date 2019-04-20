@@ -7,6 +7,8 @@ using namespace std;
 
 Jugador::Jugador()
 {
+    cout << "===========Creando Jugador==========" << endl;
+
     evento = new Event();
 
     //ctor
@@ -41,12 +43,14 @@ Jugador::Jugador()
     setRectangles();
 
     setSprite();
+
 }
 
 void Jugador::dibujar(RenderWindow * window)
 {
     window->draw(*sprite);
     drawColliders(window);
+    animar();
 }
 
 void Jugador::setSprite()

@@ -13,12 +13,10 @@ Juego::Juego(Vector2i dimension, std::string title)
     view->setCenter(Vector2f(160.f, 120.f));
     window->setView(*view);
 
-    j1 = new Jugador();
     clock1 = new Clock();
     time1 = new Time();
 
-    mapa = new Mapa();
-
+    mundo = new Mundo();
 
     gameLoop();
 }
@@ -45,20 +43,17 @@ void Juego::dibujar()
 {
     window->clear();
 
-    mapa->draw(window);
-
-    j1->dibujar(window);
-    j1->animar();
+    mundo->draw(window);
 
     window->display();
 }
 
 void Juego::update()
 {
-    j1->update();
+    mundo->updateMundo();
 }
 
 void Juego::procesarEventos()
 {
-    j1->procesarEventos(window);
+    mundo->handleEvents(window);
 }

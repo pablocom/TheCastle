@@ -12,20 +12,21 @@
 	<SFML/Graphics.hpp>
 	"Juego.h"
 
-1555752380 /home/pablo/Source/FV/TheCastle/include/Juego.h
+1555768010 /home/pablo/Source/FV/TheCastle/include/Juego.h
 	"SFML/Graphics.hpp"
 	"Jugador.h"
 	"Teclado.h"
 	"Mapa.h"
+	"Mundo.h"
 
-1555755722 source:/home/pablo/Source/FV/TheCastle/src/Juego.cpp
+1555768074 source:/home/pablo/Source/FV/TheCastle/src/Juego.cpp
 	"Juego.h"
 
-1555753755 /home/pablo/Source/FV/TheCastle/include/Jugador.h
+1555767734 /home/pablo/Source/FV/TheCastle/include/Jugador.h
 	"SFML/Graphics.hpp"
 	<vector>
 
-1555758747 source:/home/pablo/Source/FV/TheCastle/src/Jugador.cpp
+1555768278 source:/home/pablo/Source/FV/TheCastle/src/Jugador.cpp
 	<iostream>
 	"Jugador.h"
 
@@ -101,4 +102,12 @@
 	<string>
 	<iostream>
 	"SFML/Graphics.hpp"
+
+1555768370 source:/home/pablo/Source/FV/TheCastle/src/Mundo.cpp
+	"Mundo.h"
+
+1555768227 /home/pablo/Source/FV/TheCastle/include/Mundo.h
+	"SFML/Graphics.hpp"
+	"Jugador.h"
+	"Mapa.h"
 

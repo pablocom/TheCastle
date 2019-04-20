@@ -5,6 +5,7 @@
 #include "Jugador.h"
 #include "Teclado.h"
 #include "Mapa.h"
+#include "Mundo.h"
 
 using namespace sf;
 
@@ -18,11 +19,13 @@ class Juego
         void dibujar();
 
     private:
-        RenderWindow * window;
-        View * view;
+        RenderWindow *window;
+        View *view;
 
-        Jugador * j1;
-        Mapa * mapa;
+        Mundo *mundo;
+
+        Jugador *j1;
+        Mapa *mapa;
 
         int fps = 60;
         bool gameOver = false;
