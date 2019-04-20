@@ -108,11 +108,17 @@ void Jugador::procesarEventos(RenderWindow * window)
                 setSprite();
                 velocidad.x = -1;
             }
+
             else if(Keyboard::isKeyPressed(Keyboard::Right))
             {
                 invertirSprite = false;
                 setSprite();
                 velocidad.x = 1;
+            }
+
+            if(Keyboard::isKeyPressed(Keyboard::Space))
+            {
+                velocidad.y = -1;
             }
 
             break;
@@ -125,6 +131,10 @@ void Jugador::procesarEventos(RenderWindow * window)
             if(evento->key.code == Keyboard::Right)
             {
                 velocidad.x = 0;
+            }
+            if(evento->key.code == Keyboard::Space)
+            {
+                velocidad.y = 1;
             }
         }
     }
@@ -143,7 +153,11 @@ void Jugador::update(Mapa * mapa)
     }
 
 
-    if(mapa->checkearColisiones(boxes[0]) || mapa->checkearColisiones(boxes[2]))
+    if(mapa->checkearColisiones(boxes[2]) && velocidad.y > 0) // choca por abajo y esta bajando
+    {
+        sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y);
+    }
+    else if(mapa->checkearColisiones(boxes[0]) && velocidad.y < 0) // choca por arriba y esta bajando
     {
         sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y);
     }
@@ -151,7 +165,6 @@ void Jugador::update(Mapa * mapa)
     {
         sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y + velocidad.y);
     }
-
 
     updateColliders();
     updateRectangles();
