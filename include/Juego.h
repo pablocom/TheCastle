@@ -20,6 +20,7 @@ class Juego
     private:
         RenderWindow * window;
         View * view;
+
         Jugador * j1;
         Mapa * mapa;
 

@@ -2,8 +2,10 @@
 #define JUGADOR_H
 
 #include "SFML/Graphics.hpp"
+#include <vector>
 
 using namespace sf;
+using namespace std;
 
 class Jugador
 {
@@ -14,6 +16,9 @@ class Jugador
         void animar();
         void update();
         void procesarEventos(RenderWindow * window);
+        void drawColliders(RenderWindow * window);
+        void setRectangles();
+
         Sprite getSprite () { return *sprite; }
 
     private:
@@ -25,6 +30,8 @@ class Jugador
 
         bool invertirSprite = false;
 
+        std::vector<Rect<float>> boxes;
+
         Vector2f velocidad;
         Vector2f posicion;
 
@@ -32,6 +39,9 @@ class Jugador
         Sprite * sprite;
 
         Clock * clock;
+
+        /**TESTING**/
+        std::vector<RectangleShape> rectangles;
 
 };
 

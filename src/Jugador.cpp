@@ -7,11 +7,14 @@ using namespace std;
 
 Jugador::Jugador()
 {
+    evento = new Event();
+
     //ctor
     texture = new Texture();
     texture->loadFromFile("assets/sheet_hero_walk.png");
     sprite = new Sprite(*texture);
     sprite->scale(.4, .4);
+    // sprite->setOrigin(32, 32);
 
     clock = new Clock();
 
@@ -28,6 +31,14 @@ Jugador::Jugador()
     spritePositionsReverse[3] = 128;
 
     velocidad.y = 0; // gravedad
+
+    /**COLSIONES**/
+    std::vector<sf::Rect<float>> boxes;
+    boxes.push_back(FloatRect(sprite->getPosition().x + 10, sprite->getPosition().y + 10, 4, 10)); //arriba
+    boxes.push_back(FloatRect(sprite->getPosition().x + 10, sprite->getPosition().y + 10, 4, 10)); //derecha
+    boxes.push_back(FloatRect(sprite->getPosition().x + 10, sprite->getPosition().y + 10, 4, 10)); //abajo
+    boxes.push_back(FloatRect(sprite->getPosition().x + 10, sprite->getPosition().y + 10, 4, 10)); //izquierda
+    setRectangles();
 
     setSprite();
 }
@@ -115,4 +126,24 @@ void Jugador::procesarEventos(RenderWindow * window)
 void Jugador::update()
 {
     sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y + velocidad.y);
+}
+
+/**TESTING**/
+
+void Jugador::drawColliders(RenderWindow * window)
+{
+    for(int i = 0; i < rectangles.size(); i++)
+    {
+        window->draw(rectangles[i]);
+    }
+}
+
+void Jugador::setRectangles()
+{
+    for(int i = 0; i < boxes.size(); i++)
+    {
+        rectangles.push_back(RectangleShape(Vector2f(boxes[i].width, boxes[i].height)));
+        rectangles[i].setFillColor(Color::Green);
+        rectangles[i].setPosition(boxes[i].left, boxes[i].top);
+    }
 }
