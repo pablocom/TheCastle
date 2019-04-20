@@ -40,7 +40,7 @@ Jugador::Jugador()
     setSprite();
 
     /**POSICION INICIAL**/
-    moveTo(Vector2f(10, 180));
+    moveTo(Vector2f(40, 0));
 
 }
 
@@ -132,7 +132,18 @@ void Jugador::procesarEventos(RenderWindow * window)
 
 void Jugador::update(Mapa * mapa)
 {
-    if(mapa->checkearColisiones(boxes[2]) || mapa->checkearColisiones(boxes[4]))
+    if(mapa->checkearColisiones(boxes[1]) && velocidad.x > 0)
+    {
+        velocidad.x = 0;
+    }
+
+    if(mapa->checkearColisiones(boxes[3]) && velocidad.x < 0)
+    {
+        velocidad.x = 0;
+    }
+
+
+    if(mapa->checkearColisiones(boxes[0]) || mapa->checkearColisiones(boxes[2]))
     {
         sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y);
     }
@@ -140,6 +151,7 @@ void Jugador::update(Mapa * mapa)
     {
         sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y + velocidad.y);
     }
+
 
     updateColliders();
     updateRectangles();
@@ -167,10 +179,10 @@ void Jugador::setRectangles()
 
 void Jugador::updateColliders()
 {
-    boxes[0].left = sprite->getPosition().x + 8; boxes[0].top = sprite->getPosition().y + 14;
+    boxes[0].left = sprite->getPosition().x + 9.5; boxes[0].top = sprite->getPosition().y + 14;
     boxes[1].left = sprite->getPosition().x + 14.5; boxes[1].top = sprite->getPosition().y + 16;
-    boxes[2].left = sprite->getPosition().x + 8; boxes[2].top = sprite->getPosition().y + 22.5;
-    boxes[3].left = sprite->getPosition().x + 8; boxes[3].top = sprite->getPosition().y + 16;
+    boxes[2].left = sprite->getPosition().x + 9.5; boxes[2].top = sprite->getPosition().y + 22.5;
+    boxes[3].left = sprite->getPosition().x + 7; boxes[3].top = sprite->getPosition().y + 16;
     // setRectangles();
 }
 
@@ -188,15 +200,14 @@ void Jugador::moveTo(Vector2f pos)
 
     updateColliders();
 
-
     updateRectangles();
 }
 
 void Jugador::setColliders()
 {
-    /**COLSIONES**/
-    boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 14, 6, 3));   // arriba
+    /**COLISIONERS**/
+    boxes.push_back(FloatRect(sprite->getPosition().x + 12, sprite->getPosition().y + 14, 6, 3));   // arriba
     boxes.push_back(FloatRect(sprite->getPosition().x + 14.5, sprite->getPosition().y + 16, 3, 7)); // derecha
-    boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 22.5, 6, 3)); // abajo
+    boxes.push_back(FloatRect(sprite->getPosition().x + 12, sprite->getPosition().y + 22.5, 6, 3)); // abajo
     boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 16, 3, 7)); // izquierda
 }
