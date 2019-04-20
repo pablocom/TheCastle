@@ -24,15 +24,10 @@ class Juego
 
         Mundo *mundo;
 
-        Jugador *j1;
-        Mapa *mapa;
-
         int fps = 60;
         bool gameOver = false;
         Clock * clock1;
         Time * time1;
-
-
 
 };
 

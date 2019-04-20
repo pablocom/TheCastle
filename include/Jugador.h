@@ -4,6 +4,8 @@
 #include "SFML/Graphics.hpp"
 #include <vector>
 
+#include "Mapa.h"
+
 using namespace sf;
 using namespace std;
 
@@ -14,12 +16,17 @@ class Jugador
         void dibujar(RenderWindow * window);
         void setSprite();
         void animar();
-        void update();
+        void update(Mapa *mapa);
         void procesarEventos(RenderWindow * window);
         void drawColliders(RenderWindow * window);
+        void updateRectangles();
         void setRectangles();
+        void updateColliders();
+        void setColliders();
+        void moveTo(Vector2f pos); //esto desplaza al jugador inmediatamente a la posicion indicada
 
         Sprite getSprite () { return *sprite; }
+        std::vector<Rect<float>> getColliders() { return boxes; }
 
     private:
         Event * evento;

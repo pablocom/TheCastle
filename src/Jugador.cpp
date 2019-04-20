@@ -32,17 +32,15 @@ Jugador::Jugador()
     spritePositionsReverse[2] = 192;
     spritePositionsReverse[3] = 128;
 
-    velocidad.y = 0; // gravedad
+    velocidad.y = 1; // gravedad
 
-    /**COLSIONES**/
-    boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 14, 10, 3));   // arriba
-    boxes.push_back(FloatRect(sprite->getPosition().x + 14.5, sprite->getPosition().y + 16, 3, 7)); // derecha
-    boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 22.5, 10, 3)); // abajo
-    boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 16, 3, 7)); // izquierda
-
+    setColliders();
     setRectangles();
 
     setSprite();
+
+    /**POSICION INICIAL**/
+    moveTo(Vector2f(10, 180));
 
 }
 
@@ -67,17 +65,21 @@ void Jugador::setSprite()
 
 void Jugador::animar()
 {
-    if(clock->getElapsedTime().asSeconds() > 0.4f) {
+    if(clock->getElapsedTime().asSeconds() > 0.4f)
+    {
 
-        if(true) {
+        if(true)
+        {
 
-            if(spriteActive < 3) {
+            if(spriteActive < 3)
+            {
 
                 setSprite();
                 spriteActive++;
                 clock->restart();
             }
-            else {
+            else
+            {
 
                 setSprite();
                 spriteActive = 0;
@@ -94,43 +96,53 @@ void Jugador::procesarEventos(RenderWindow * window)
         // We are going to listen the different events
         switch(evento->type)
         {
-            case Event::Closed:
-                exit(1);
-                break;
+        case Event::Closed:
+            exit(1);
+            break;
 
-            case Event::KeyPressed:
+        case Event::KeyPressed:
 
-                if(Keyboard::isKeyPressed(Keyboard::Left))
-                {
-                    invertirSprite = true;
-                    setSprite();
-                    velocidad.x = -1;
-                }
-                else if(Keyboard::isKeyPressed(Keyboard::Right))
-                {
-                    invertirSprite = false;
-                    setSprite();
-                    velocidad.x = 1;
-                }
+            if(Keyboard::isKeyPressed(Keyboard::Left))
+            {
+                invertirSprite = true;
+                setSprite();
+                velocidad.x = -1;
+            }
+            else if(Keyboard::isKeyPressed(Keyboard::Right))
+            {
+                invertirSprite = false;
+                setSprite();
+                velocidad.x = 1;
+            }
 
-                break;
+            break;
 
-            case Event::KeyReleased:
-                if(evento->key.code == Keyboard::Left)
-                {
-                    velocidad.x = 0;
-                }
-                if(evento->key.code == Keyboard::Right)
-                {
-                    velocidad.x = 0;
-                }
+        case Event::KeyReleased:
+            if(evento->key.code == Keyboard::Left)
+            {
+                velocidad.x = 0;
+            }
+            if(evento->key.code == Keyboard::Right)
+            {
+                velocidad.x = 0;
+            }
         }
     }
 }
 
-void Jugador::update()
+void Jugador::update(Mapa * mapa)
 {
-    sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y + velocidad.y);
+    if(mapa->checkearColisiones(boxes[2]) || mapa->checkearColisiones(boxes[4]))
+    {
+        sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y);
+    }
+    else
+    {
+        sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y + velocidad.y);
+    }
+
+    updateColliders();
+    updateRectangles();
 }
 
 /**TESTING**/
@@ -145,12 +157,46 @@ void Jugador::drawColliders(RenderWindow * window)
 
 void Jugador::setRectangles()
 {
-
-
     for(int i = 0; i < boxes.size(); i++)
     {
         rectangles.push_back(RectangleShape(Vector2f(boxes[i].width, boxes[i].height)));
         rectangles[i].setFillColor(Color::Magenta);
         rectangles[i].setPosition(boxes[i].left, boxes[i].top);
     }
+}
+
+void Jugador::updateColliders()
+{
+    boxes[0].left = sprite->getPosition().x + 8; boxes[0].top = sprite->getPosition().y + 14;
+    boxes[1].left = sprite->getPosition().x + 14.5; boxes[1].top = sprite->getPosition().y + 16;
+    boxes[2].left = sprite->getPosition().x + 8; boxes[2].top = sprite->getPosition().y + 22.5;
+    boxes[3].left = sprite->getPosition().x + 8; boxes[3].top = sprite->getPosition().y + 16;
+    // setRectangles();
+}
+
+void Jugador::updateRectangles()
+{
+    for(int i = 0; i < rectangles.size(); i++)
+    {
+        rectangles[i].setPosition(boxes[i].left, boxes[i].top);
+    }
+}
+
+void Jugador::moveTo(Vector2f pos)
+{
+    sprite->setPosition(pos);
+
+    updateColliders();
+
+
+    updateRectangles();
+}
+
+void Jugador::setColliders()
+{
+    /**COLSIONES**/
+    boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 14, 6, 3));   // arriba
+    boxes.push_back(FloatRect(sprite->getPosition().x + 14.5, sprite->getPosition().y + 16, 3, 7)); // derecha
+    boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 22.5, 6, 3)); // abajo
+    boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 16, 3, 7)); // izquierda
 }

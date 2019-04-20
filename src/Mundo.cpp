@@ -3,8 +3,9 @@
 Mundo::Mundo()
 {
     //ctor
-    j1 = new Jugador();
     mapa = new Mapa();
+
+    j1 = new Jugador();
 }
 
 Mundo::~Mundo()
@@ -14,13 +15,13 @@ Mundo::~Mundo()
 
 void Mundo::draw(RenderWindow *w)
 {
-    j1->dibujar(w);
     mapa->draw(w);
+    j1->dibujar(w);
 }
 
 void Mundo::updateMundo()
 {
-    j1->update();
+    j1->update(mapa);
 }
 
 void Mundo::handleEvents(RenderWindow *w)

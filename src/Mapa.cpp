@@ -183,9 +183,12 @@ bool Mapa::checkearColisiones(FloatRect rect)
     {
         for(int x = 0; x < width; x++)
         {
-            if(tilemapSprite[0][y][x]->getGlobalBounds().intersects(rect))
+            if(tilemapSprite[0][y][x] != NULL)
             {
-                return true;
+                if(tilemapSprite[0][y][x]->getGlobalBounds().intersects(rect))
+                {
+                    return true;
+                }
             }
         }
     }
