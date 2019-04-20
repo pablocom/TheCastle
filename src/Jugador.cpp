@@ -19,6 +19,7 @@ Jugador::Jugador()
     // sprite->setOrigin(32, 32);
 
     clock = new Clock();
+    clockSalto = new Clock();
 
     spritePositions = new int[4];
     spritePositions[0] = 0;
@@ -89,7 +90,7 @@ void Jugador::animar()
     }
 }
 
-void Jugador::procesarEventos(RenderWindow * window)
+void Jugador::procesarEventos(RenderWindow * window, Mapa * mapa)
 {
     while(window->pollEvent(*evento))
     {
@@ -118,7 +119,12 @@ void Jugador::procesarEventos(RenderWindow * window)
 
             if(Keyboard::isKeyPressed(Keyboard::Space))
             {
-                velocidad.y = -1;
+                if(saltando == false && mapa->checkearColisiones(boxes[2])) // si no estaba saltando
+                {
+                    saltando = true;
+                    clockSalto->restart();
+                    cout << "Saltando y reiniciando el clock" << endl;
+                }
             }
 
             break;
@@ -134,7 +140,8 @@ void Jugador::procesarEventos(RenderWindow * window)
             }
             if(evento->key.code == Keyboard::Space)
             {
-                velocidad.y = 1;
+                saltando = false;
+                clockSalto->restart();
             }
         }
     }
@@ -142,6 +149,20 @@ void Jugador::procesarEventos(RenderWindow * window)
 
 void Jugador::update(Mapa * mapa)
 {
+    if(clockSalto->getElapsedTime().asSeconds() >= 1.5)
+    {
+        saltando = false;
+    }
+
+    if(saltando == true)
+    {
+        velocidad.y = -1;
+    }
+    else
+    {
+        velocidad.y = 1;
+    }
+
     if(mapa->checkearColisiones(boxes[1]) && velocidad.x > 0)
     {
         velocidad.x = 0;
@@ -157,7 +178,7 @@ void Jugador::update(Mapa * mapa)
     {
         sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y);
     }
-    else if(mapa->checkearColisiones(boxes[0]) && velocidad.y < 0) // choca por arriba y esta bajando
+    else if(mapa->checkearColisiones(boxes[0]) && velocidad.y < 0) // choca por arriba y esta subiendo
     {
         sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y);
     }

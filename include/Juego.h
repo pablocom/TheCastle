@@ -24,7 +24,7 @@ class Juego
 
         Mundo *mundo;
 
-        int fps = 60;
+        int fps = 40;
         bool gameOver = false;
         Clock * clock1;
         Time * time1;

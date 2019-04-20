@@ -26,5 +26,5 @@ void Mundo::updateMundo()
 
 void Mundo::handleEvents(RenderWindow *w)
 {
-    j1->procesarEventos(w);
+    j1->procesarEventos(w, mapa);
 }

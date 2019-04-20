@@ -17,7 +17,7 @@ class Jugador
         void setSprite();
         void animar();
         void update(Mapa *mapa);
-        void procesarEventos(RenderWindow * window);
+        void procesarEventos(RenderWindow * window, Mapa *mapa);
         void drawColliders(RenderWindow * window);
         void updateRectangles();
         void setRectangles();
@@ -37,6 +37,8 @@ class Jugador
 
         bool invertirSprite = false;
 
+        bool saltando = false;
+
         std::vector<Rect<float>> boxes;
 
         Vector2f velocidad;
@@ -45,7 +47,10 @@ class Jugador
         Texture * texture;
         Sprite * sprite;
 
+        /**ANIMACION**/
         Clock * clock;
+
+        Clock * clockSalto;
 
         /**TESTING**/
         std::vector<RectangleShape> rectangles;
