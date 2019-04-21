@@ -104,7 +104,7 @@
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1555843342 source:/home/pablo/Source/FV/TheCastle/src/Mundo.cpp
+1555864969 source:/home/pablo/Source/FV/TheCastle/src/Mundo.cpp
 	"Mundo.h"
 
 1555843329 /home/pablo/Source/FV/TheCastle/include/Mundo.h
@@ -113,7 +113,10 @@
 	"Mapa.h"
 	"Enemigo.h"
 
-1555844354 /home/pablo/Source/FV/TheCastle/include/Enemigo.h
+1555864417 /home/pablo/Source/FV/TheCastle/include/Enemigo.h
 	"SFML/Graphics.hpp"
 	<iostream>
+
+1555865040 source:/home/pablo/Source/FV/TheCastle/src/Enemigo.cpp
+	"Enemigo.h"
 

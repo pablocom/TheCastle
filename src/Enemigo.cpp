@@ -1,8 +1,12 @@
 #include "Enemigo.h"
 
-Enemigo::Enemigo()
+Enemigo::Enemigo(float yInicial, float xIni, float xFin)
 {
     //ctor
+
+    xInicial = xIni;
+    xFinal = xFin;
+
     walk_txt = new Texture();
     walk_txt->loadFromFile("assets/enemigo/skeleton_walk.png");
     walk_spr = new Sprite(*walk_txt);
@@ -10,10 +14,12 @@ Enemigo::Enemigo()
     walk_spr->setScale(0.7, 0.6);
     walk_spr->setOrigin(11, 16.5);
     walk_spr->setTextureRect(IntRect(walk_sprite_active*22, 0, 22, 33));
-    walk_spr->setPosition(200, 196);
+    walk_spr->setPosition(xInicial, yInicial);
 
     clockAnimation = new Clock();
     animate();
+
+    initEnemigo();
 }
 
 Enemigo::~Enemigo()
@@ -48,4 +54,27 @@ void Enemigo::animate()
 void Enemigo::updateFrame()
 {
     walk_spr->setTextureRect(IntRect(walk_sprite_active*22, 0, 22, 33));
+}
+
+void Enemigo::initEnemigo()
+{
+    if(xInicial > xFinal)
+    {
+        /// iniciamos la velocidad a positivo
+        velocidad.x = -1;
+    }
+    else
+    {
+        velocidad.x = 1;
+    }
+}
+
+void Enemigo::update()
+{
+    if(walk_spr->getPosition().x > xFinal || walk_spr->getPosition().x < xInicial)
+    {
+        velocidad.x = -velocidad.x; /// invertimos la velocidad
+    }
+
+    walk_spr->setPosition(walk_spr->getPosition().x + velocidad.x, walk_spr->getPosition().y);
 }

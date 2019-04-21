@@ -7,7 +7,7 @@ Mundo::Mundo()
 
     j1 = new Jugador();
 
-    enemigoPrueba = new Enemigo();
+    enemigoPrueba = new Enemigo(196, 200, 250);
 }
 
 Mundo::~Mundo()
@@ -25,6 +25,7 @@ void Mundo::draw(RenderWindow *w)
 void Mundo::updateMundo()
 {
     j1->update(mapa);
+    enemigoPrueba->update();
 }
 
 void Mundo::handleEvents(RenderWindow *w)

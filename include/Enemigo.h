@@ -9,20 +9,25 @@ using namespace sf;
 class Enemigo
 {
     public:
-        Enemigo();
+        Enemigo(float yInicial, float xInicial, float xFinal);
         virtual ~Enemigo();
         void update();
         void draw(RenderWindow *w);
         void animate();
         void updateFrame();
         void moveTo(float left, float top);
+        void initEnemigo();
 
     protected:
 
     private:
+        float xInicial, xFinal;
+
         Texture *walk_txt;
         Sprite *walk_spr;
         int walk_sprite_active = 0;
+
+        Vector2f velocidad;
 
         Clock *clockAnimation;
 
