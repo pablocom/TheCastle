@@ -7,6 +7,12 @@ Mapa::Mapa()
 {
     mapTexture = new Texture();
 
+    backgroundTexture = new Texture();
+    backgroundTexture->loadFromFile("assets/maps/background.png");
+    backgroundSprite = new Sprite(*backgroundTexture);
+    backgroundSprite->scale(1.5, 1.5);
+    backgroundSprite->setColor(Color(120, 80, 120));
+
     load();
 
 }
@@ -162,6 +168,8 @@ void Mapa::setTileMapSprites()
 
 void Mapa::draw(RenderWindow * window)
 {
+    window->draw(*backgroundSprite);
+
     for(int l = 0; l < numLayers; l++)
     {
         for(int y = 0; y < height; y++)

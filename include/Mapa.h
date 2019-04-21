@@ -19,6 +19,9 @@ class Mapa
         bool checkearColisiones(FloatRect rect);
 
     private:
+        Texture *backgroundTexture;
+        Sprite *backgroundSprite;
+
         Texture* mapTexture;
         Sprite*** spriteSet;
         Sprite ****tilemapSprite;

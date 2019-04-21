@@ -48,7 +48,7 @@ Jugador::Jugador()
 void Jugador::dibujar(RenderWindow * window)
 {
     window->draw(*sprite);
-    drawColliders(window);
+    // drawColliders(window);
     animar();
 }
 
@@ -71,7 +71,6 @@ void Jugador::animar()
 
         if(true)
         {
-
             if(spriteActive < 3)
             {
 
@@ -123,7 +122,6 @@ void Jugador::procesarEventos(RenderWindow * window, Mapa * mapa)
                 {
                     saltando = true;
                     clockSalto->restart();
-                    cout << "Saltando y reiniciando el clock" << endl;
                 }
             }
 
@@ -149,18 +147,27 @@ void Jugador::procesarEventos(RenderWindow * window, Mapa * mapa)
 
 void Jugador::update(Mapa * mapa)
 {
-    if(clockSalto->getElapsedTime().asSeconds() >= 1.5)
+    if(clockSalto->getElapsedTime().asSeconds() >= 2)
     {
         saltando = false;
     }
 
     if(saltando == true)
     {
-        velocidad.y = -1;
+        if(saltoTotal <= -32)
+        {
+            velocidad.y = 0;
+        }
+        else
+        {
+            velocidad.y = -1;
+            saltoTotal += velocidad.y;
+        }
     }
     else
     {
         velocidad.y = 1;
+        saltoTotal = 0;
     }
 
     if(mapa->checkearColisiones(boxes[1]) && velocidad.x > 0)

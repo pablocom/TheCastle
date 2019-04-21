@@ -35,6 +35,8 @@ class Jugador
         int * spritePositions;
         int * spritePositionsReverse;
 
+        int saltoTotal = 0;
+
         bool invertirSprite = false;
 
         bool saltando = false;
