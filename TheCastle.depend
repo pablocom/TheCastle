@@ -107,8 +107,12 @@
 1555783058 source:/home/pablo/Source/FV/TheCastle/src/Mundo.cpp
 	"Mundo.h"
 
-1555768227 /home/pablo/Source/FV/TheCastle/include/Mundo.h
+1555843329 /home/pablo/Source/FV/TheCastle/include/Mundo.h
 	"SFML/Graphics.hpp"
 	"Jugador.h"
 	"Mapa.h"
+	"Enemigo.h"
+
+1555843164 /home/pablo/Source/FV/TheCastle/include/Enemigo.h
+	"SFML/Graphics.hpp"
 

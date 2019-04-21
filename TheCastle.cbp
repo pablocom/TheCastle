@@ -41,6 +41,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/Enemigo.h" />
 		<Unit filename="include/Juego.h" />
 		<Unit filename="include/Jugador.h" />
 		<Unit filename="include/Mapa.h" />
@@ -55,6 +56,7 @@
 		<Unit filename="lib/tinyxml/tinyxmlerror.cpp" />
 		<Unit filename="lib/tinyxml/tinyxmlparser.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Enemigo.cpp" />
 		<Unit filename="src/Juego.cpp" />
 		<Unit filename="src/Jugador.cpp" />
 		<Unit filename="src/Mapa.cpp" />
