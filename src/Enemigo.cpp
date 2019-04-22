@@ -53,7 +53,14 @@ void Enemigo::animate()
 
 void Enemigo::updateFrame()
 {
-    walk_spr->setTextureRect(IntRect(walk_sprite_active*22, 0, 22, 33));
+    if(velocidad.x > 0)
+    {
+        walk_spr->setTextureRect(IntRect(walk_sprite_active*22, 0, 22, 33));
+    }
+    else
+    {
+        walk_spr->setTextureRect(IntRect(walk_sprite_active*22+22, 0, -22, 33));
+    }
 }
 
 void Enemigo::initEnemigo()
