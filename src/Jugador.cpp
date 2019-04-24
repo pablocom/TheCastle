@@ -89,7 +89,7 @@ void Jugador::animar()
     }
 }
 
-void Jugador::procesarEventos(RenderWindow * window, Mapa * mapa)
+void Jugador::procesarEventos(RenderWindow * window, Nivel * nivel)
 {
     while(window->pollEvent(*evento))
     {
@@ -118,7 +118,7 @@ void Jugador::procesarEventos(RenderWindow * window, Mapa * mapa)
 
             if(Keyboard::isKeyPressed(Keyboard::Space))
             {
-                if(saltando == false && mapa->checkearColisiones(boxes[2])) // si no estaba saltando
+                if(saltando == false && nivel->checkearColisiones(boxes[2])) // si no estaba saltando
                 {
                     saltando = true;
                     clockSalto->restart();
@@ -145,7 +145,7 @@ void Jugador::procesarEventos(RenderWindow * window, Mapa * mapa)
     }
 }
 
-void Jugador::update(Mapa * mapa)
+void Jugador::update(Nivel *nivel)
 {
     if(clockSalto->getElapsedTime().asSeconds() >= 2)
     {
@@ -170,22 +170,22 @@ void Jugador::update(Mapa * mapa)
         saltoTotal = 0;
     }
 
-    if(mapa->checkearColisiones(boxes[1]) && velocidad.x > 0)
+    if(nivel->checkearColisiones(boxes[1]) && velocidad.x > 0)
     {
         velocidad.x = 0;
     }
 
-    if(mapa->checkearColisiones(boxes[3]) && velocidad.x < 0)
+    if(nivel->checkearColisiones(boxes[3]) && velocidad.x < 0)
     {
         velocidad.x = 0;
     }
 
 
-    if(mapa->checkearColisiones(boxes[2]) && velocidad.y > 0) // choca por abajo y esta bajando
+    if(nivel->checkearColisiones(boxes[2]) && velocidad.y > 0) // choca por abajo y esta bajando
     {
         sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y);
     }
-    else if(mapa->checkearColisiones(boxes[0]) && velocidad.y < 0) // choca por arriba y esta subiendo
+    else if(nivel->checkearColisiones(boxes[0]) && velocidad.y < 0) // choca por arriba y esta subiendo
     {
         sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y);
     }

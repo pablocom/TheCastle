@@ -1,4 +1,5 @@
 #include "Puerta.h"
+#include <iostream>
 
 Puerta::Puerta(float xInicial, float yInicial)
 {
@@ -23,4 +24,14 @@ void Puerta::draw(RenderWindow *w)
 void Puerta::moveTo(float x, float y)
 {
     sprite->setPosition(x, y);
+}
+
+bool Puerta::checkearColisiones(FloatRect rect)
+{
+    if(sprite->getGlobalBounds().intersects(rect))
+    {
+        std::cout << "Colisiona con una puerta" << std::endl;
+        return true;
+    }
+    return false;
 }

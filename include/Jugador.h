@@ -4,7 +4,7 @@
 #include "SFML/Graphics.hpp"
 #include <vector>
 
-#include "Mapa.h"
+#include "Nivel.h"
 
 using namespace sf;
 using namespace std;
@@ -16,8 +16,8 @@ class Jugador
         void dibujar(RenderWindow * window);
         void setSprite();
         void animar();
-        void update(Mapa *mapa);
-        void procesarEventos(RenderWindow * window, Mapa *mapa);
+        void update(Nivel *nivel);
+        void procesarEventos(RenderWindow * window, Nivel *nivel);
         void drawColliders(RenderWindow * window);
         void updateRectangles();
         void setRectangles();

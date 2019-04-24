@@ -19,15 +19,15 @@
 	"Mapa.h"
 	"Mundo.h"
 
-1555768443 source:/home/pablo/Source/FV/TheCastle/src/Juego.cpp
+1556130285 source:/home/pablo/Source/FV/TheCastle/src/Juego.cpp
 	"Juego.h"
 
-1556116427 /home/pablo/Source/FV/TheCastle/include/Jugador.h
+1556129596 /home/pablo/Source/FV/TheCastle/include/Jugador.h
 	"SFML/Graphics.hpp"
 	<vector>
-	"Mapa.h"
+	"Nivel.h"
 
-1556116534 source:/home/pablo/Source/FV/TheCastle/src/Jugador.cpp
+1556130580 source:/home/pablo/Source/FV/TheCastle/src/Jugador.cpp
 	<iostream>
 	"Jugador.h"
 
@@ -104,16 +104,13 @@
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1556128149 source:/home/pablo/Source/FV/TheCastle/src/Mundo.cpp
+1556130273 source:/home/pablo/Source/FV/TheCastle/src/Mundo.cpp
 	"Mundo.h"
 
-1556126437 /home/pablo/Source/FV/TheCastle/include/Mundo.h
+1556129356 /home/pablo/Source/FV/TheCastle/include/Mundo.h
 	"SFML/Graphics.hpp"
 	"Jugador.h"
-	"Mapa.h"
-	"Enemigo.h"
-	"Llave.h"
-	"Puerta.h"
+	"Nivel.h"
 
 1556117279 /home/pablo/Source/FV/TheCastle/include/Enemigo.h
 	"SFML/Graphics.hpp"
@@ -128,9 +125,20 @@
 1556127467 source:/home/pablo/Source/FV/TheCastle/src/Llave.cpp
 	"Llave.h"
 
-1556128121 source:/home/pablo/Source/FV/TheCastle/src/Puerta.cpp
+1556130614 source:/home/pablo/Source/FV/TheCastle/src/Puerta.cpp
+	"Puerta.h"
+	<iostream>
+
+1556129929 /home/pablo/Source/FV/TheCastle/include/Puerta.h
+	"SFML/Graphics.hpp"
+
+1556129702 /home/pablo/Source/FV/TheCastle/include/Nivel.h
+	"SFML/Graphics.hpp"
+	"Mapa.h"
+	"Enemigo.h"
+	"Llave.h"
 	"Puerta.h"
 
-1556127667 /home/pablo/Source/FV/TheCastle/include/Puerta.h
-	"SFML/Graphics.hpp"
+1556130030 source:/home/pablo/Source/FV/TheCastle/src/Nivel.cpp
+	"Nivel.h"
 

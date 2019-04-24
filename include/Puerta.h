@@ -13,6 +13,7 @@ class Puerta
         virtual ~Puerta();
         void draw(RenderWindow *w);
         void moveTo(float x, float y);
+        bool checkearColisiones(FloatRect Rect);
         Sprite getSprite() {return *sprite;}
 
     private:
