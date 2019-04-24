@@ -104,15 +104,16 @@
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1556118856 source:/home/pablo/Source/FV/TheCastle/src/Mundo.cpp
+1556128149 source:/home/pablo/Source/FV/TheCastle/src/Mundo.cpp
 	"Mundo.h"
 
-1556118590 /home/pablo/Source/FV/TheCastle/include/Mundo.h
+1556126437 /home/pablo/Source/FV/TheCastle/include/Mundo.h
 	"SFML/Graphics.hpp"
 	"Jugador.h"
 	"Mapa.h"
 	"Enemigo.h"
 	"Llave.h"
+	"Puerta.h"
 
 1556117279 /home/pablo/Source/FV/TheCastle/include/Enemigo.h
 	"SFML/Graphics.hpp"
@@ -121,9 +122,15 @@
 1556117564 source:/home/pablo/Source/FV/TheCastle/src/Enemigo.cpp
 	"Enemigo.h"
 
-1556118964 /home/pablo/Source/FV/TheCastle/include/Llave.h
+1556127623 /home/pablo/Source/FV/TheCastle/include/Llave.h
 	"SFML/Graphics.hpp"
 
-1556118984 source:/home/pablo/Source/FV/TheCastle/src/Llave.cpp
+1556127467 source:/home/pablo/Source/FV/TheCastle/src/Llave.cpp
 	"Llave.h"
+
+1556128121 source:/home/pablo/Source/FV/TheCastle/src/Puerta.cpp
+	"Puerta.h"
+
+1556127667 /home/pablo/Source/FV/TheCastle/include/Puerta.h
+	"SFML/Graphics.hpp"
 
