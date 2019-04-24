@@ -82,8 +82,6 @@ void Enemigo::initEnemigo()
 
 void Enemigo::update()
 {
-    std::cout << "POSICION EN X DE EL ENEMIGO: " << walk_spr->getPosition().x << " | RANGO: " << xInicial << ", " << xFinal << std::endl;
-
     if(walk_spr->getPosition().x > xFinal || walk_spr->getPosition().x < xInicial)
     {
         velocidad.x = -velocidad.x; /// invertimos la velocidad

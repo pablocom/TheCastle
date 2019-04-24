@@ -5,6 +5,7 @@
 #include "Jugador.h"
 #include "Mapa.h"
 #include "Enemigo.h"
+#include "Llave.h"
 
 using namespace sf;
 using namespace std;
@@ -26,7 +27,7 @@ class Mundo
         Mapa *mapa;
 
         Enemigo **enemigos; /// Array con los enemigos que va a tener ese mundo
-        Enemigo *enemigoPrueba;
+        Llave **llaves; /// Array con las llaves que va a tener ese mundo
 
         bool tSalto = false, tIzquierda = false, tDerecha = false;
 
