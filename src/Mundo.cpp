@@ -5,13 +5,13 @@ Mundo::Mundo()
     //ctor
     mapa = new Mapa();
 
-    j1 = new Jugador();
+    j1 = new Jugador(10, 180);
 
-    enemigoPrueba = new Enemigo(196, 10, 250);
+    enemigoPrueba = new Enemigo(196, 10, 250, true);
 
     enemigos = new Enemigo*[1];
 
-    enemigos[0] = new Enemigo(102, 135, 220);
+    enemigos[0] = new Enemigo(102, 135, 220, false);
 }
 
 Mundo::~Mundo()

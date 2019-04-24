@@ -5,7 +5,7 @@
 using namespace sf;
 using namespace std;
 
-Jugador::Jugador()
+Jugador::Jugador(float xInicial, float yInicial)
 {
     cout << "===========Creando Jugador==========" << endl;
 
@@ -41,7 +41,7 @@ Jugador::Jugador()
     setSprite();
 
     /**POSICION INICIAL**/
-    moveTo(Vector2f(40, 0));
+    moveTo(Vector2f(xInicial, yInicial));
 
 }
 

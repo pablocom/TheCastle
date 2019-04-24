@@ -12,7 +12,7 @@ using namespace std;
 class Jugador
 {
     public:
-        Jugador();
+        Jugador(float xInicial, float yInicial);
         void dibujar(RenderWindow * window);
         void setSprite();
         void animar();

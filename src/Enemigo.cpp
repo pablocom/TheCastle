@@ -1,6 +1,6 @@
 #include "Enemigo.h"
 
-Enemigo::Enemigo(float yInicial, float xIni, float xFin)
+Enemigo::Enemigo(float yInicial, float xIni, float xFin, bool invertido)
 {
     //ctor
 
@@ -20,6 +20,11 @@ Enemigo::Enemigo(float yInicial, float xIni, float xFin)
     animate();
 
     initEnemigo();
+
+    if(invertido)
+    {
+        walk_spr->setPosition(xFinal - 1, walk_spr->getPosition().y);
+    }
 }
 
 Enemigo::~Enemigo()
@@ -59,7 +64,7 @@ void Enemigo::updateFrame()
     }
     else
     {
-        walk_spr->setTextureRect(IntRect(walk_sprite_active*22+22, 0, -22, 33));
+        walk_spr->setTextureRect(IntRect(walk_sprite_active * 22 + 22, 0, -22, 33));
     }
 }
 
@@ -67,7 +72,6 @@ void Enemigo::initEnemigo()
 {
     if(xInicial > xFinal)
     {
-        /// iniciamos la velocidad a positivo
         velocidad.x = -1;
     }
     else
@@ -78,6 +82,8 @@ void Enemigo::initEnemigo()
 
 void Enemigo::update()
 {
+    std::cout << "POSICION EN X DE EL ENEMIGO: " << walk_spr->getPosition().x << " | RANGO: " << xInicial << ", " << xFinal << std::endl;
+
     if(walk_spr->getPosition().x > xFinal || walk_spr->getPosition().x < xInicial)
     {
         velocidad.x = -velocidad.x; /// invertimos la velocidad

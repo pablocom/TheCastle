@@ -9,7 +9,7 @@ using namespace sf;
 class Enemigo
 {
     public:
-        Enemigo(float yInicial, float xInicial, float xFinal);
+        Enemigo(float yInicial, float xInicial, float xFinal, bool invertido);
         virtual ~Enemigo();
         void update();
         void draw(RenderWindow *w);
