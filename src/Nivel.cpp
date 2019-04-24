@@ -63,6 +63,6 @@ bool Nivel::checkearColisiones(FloatRect rect)
 void Nivel::updateNivel()
 {
     for(int i = 0; i < numEnemigos; i++) {
-        enemigos[i]->update();
+        enemigos[i]->update(mapa, puertas);
     }
 }

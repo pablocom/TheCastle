@@ -80,9 +80,9 @@ void Enemigo::initEnemigo()
     }
 }
 
-void Enemigo::update()
+void Enemigo::update(Mapa *mapa, Puerta **puertas)
 {
-    if(walk_spr->getPosition().x > xFinal || walk_spr->getPosition().x < xInicial)
+    if(walk_spr->getPosition().x > xFinal || walk_spr->getPosition().x < xInicial || walk_spr->getGlobalBounds().intersects(puertas[0]->getSprite().getGlobalBounds()))
     {
         velocidad.x = -velocidad.x; /// invertimos la velocidad
     }

@@ -4,6 +4,9 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 
+#include "Mapa.h"
+#include "Puerta.h"
+
 using namespace sf;
 
 class Enemigo
@@ -11,7 +14,7 @@ class Enemigo
     public:
         Enemigo(float yInicial, float xInicial, float xFinal, bool invertido);
         virtual ~Enemigo();
-        void update();
+        void update(Mapa *mapa, Puerta **puertas);
         void draw(RenderWindow *w);
         void animate();
         void updateFrame();
