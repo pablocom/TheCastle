@@ -24,12 +24,17 @@ class Jugador
         void updateColliders();
         void setColliders();
         void moveTo(Vector2f pos); //esto desplaza al jugador inmediatamente a la posicion indicada
+        void reiniciar();
 
+        bool estaMuriendo() { return muriendo; }
+        bool pendienteDeReinicio() { return reinicio; }
         Sprite getSprite () { return *sprite; }
         std::vector<Rect<float>> getColliders() { return boxes; }
 
     private:
         Event * evento;
+
+        float yJugadorAux = 0, xJugadorAux = 0; /// donde tenemos que mover al jugador para reiniciarlo
 
         int spriteActive = 0;
         int * spritePositions;
@@ -62,7 +67,9 @@ class Jugador
         /****/
         int llaves = 0;
 
-
+        Clock *clockMuerte;
+        bool muriendo = false;
+        bool reinicio = false;
 
 };
 

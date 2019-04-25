@@ -4,6 +4,7 @@ Enemigo::Enemigo(float yInicial, float xIni, float xFin, bool invertido)
 {
     //ctor
 
+    yInicial = yInicial;
     xInicial = xIni;
     xFinal = xFin;
 
@@ -25,6 +26,9 @@ Enemigo::Enemigo(float yInicial, float xIni, float xFin, bool invertido)
     {
         walk_spr->setPosition(xFinal - 1, walk_spr->getPosition().y);
     }
+
+    xAux = walk_spr->getPosition().x;
+    yAux = walk_spr->getPosition().y;
 }
 
 Enemigo::~Enemigo()
@@ -82,7 +86,7 @@ void Enemigo::initEnemigo()
 
 void Enemigo::update(Mapa *mapa, std::vector<Puerta*> puertas)
 {
-    for(int i = 0; i < puertas.size(); i++)
+    for(unsigned i = 0; i < puertas.size(); i++)
     {
         if(walk_spr->getGlobalBounds().intersects(puertas[i]->getSprite().getGlobalBounds()))
         {
@@ -96,4 +100,18 @@ void Enemigo::update(Mapa *mapa, std::vector<Puerta*> puertas)
     }
 
     walk_spr->setPosition(walk_spr->getPosition().x + velocidad.x, walk_spr->getPosition().y);
+}
+
+bool Enemigo::checkearColision(FloatRect rect)
+{
+    if(walk_spr->getGlobalBounds().intersects(rect))
+    {
+        return true;
+    }
+    return false;
+}
+
+void Enemigo::reiniciar()
+{
+    walk_spr->setPosition(xAux, yAux);
 }

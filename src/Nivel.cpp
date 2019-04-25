@@ -11,6 +11,22 @@ Nivel::Nivel()
     llaves.push_back(new Llave(34, 170));
 
     puertas.push_back(new Puerta(46.5, 188));
+
+    fontNexts = new Font();
+    fontNexts->loadFromFile("assets/maps/fullPack2025.ttf");
+
+    nexts.push_back(new Text());
+    nexts[0]->setFont(*fontNexts);
+    nexts[0]->setCharacterSize(9);
+    nexts[0]->setString("NEXT");
+    nexts[0]->setPosition(284, 206);
+
+    nexts.push_back(new Text());
+    nexts[1]->setFont(*fontNexts);
+    nexts[1]->setCharacterSize(9);
+    nexts[1]->setString("NEXT");
+    nexts[1]->setPosition(284, 158);
+
 }
 
 Nivel::~Nivel()
@@ -35,6 +51,11 @@ void Nivel::draw(RenderWindow *w)
     for(int i = 0; i < puertas.size(); i++)
     {
         puertas[i]->draw(w);
+    }
+
+    for(int i = 0; i < nexts.size(); i++)
+    {
+        w->draw(*nexts[i]);
     }
 }
 
@@ -80,7 +101,28 @@ bool Nivel::checkearColisionesLlaves(FloatRect rect)
 
 void Nivel::updateNivel()
 {
-    for(int i = 0; i < enemigos.size(); i++) {
+    for(int i = 0; i < enemigos.size(); i++)
+    {
         enemigos[i]->update(mapa, puertas);
+    }
+}
+
+bool Nivel::checkearColisionesEnemigos(FloatRect rect)
+{
+    for(int i = 0; i < enemigos.size(); i++)
+    {
+        if(enemigos[i]->checkearColision(rect))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+void Nivel::reiniciar()
+{
+    for(int i = 0; i < enemigos.size(); i++)
+    {
+        enemigos[i]->reiniciar(); /// devolver al enemigo a la posicion en la que empezo (si sigue en el nivel)
     }
 }

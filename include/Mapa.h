@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "SFML/Graphics.hpp"
+#include <vector>
 
 using namespace std;
 using namespace sf;
@@ -34,6 +35,7 @@ class Mapa
         int tilesetColumns = 0;
         const char * textureFileName;
         int ***tileMap; /// tilemap con los gid de el tmx, matriz en 3D
+
 
         void printTileMap();
 

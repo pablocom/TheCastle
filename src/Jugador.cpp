@@ -20,6 +20,7 @@ Jugador::Jugador(float xInicial, float yInicial)
 
     clock = new Clock();
     clockSalto = new Clock();
+    clockMuerte = new Clock();
 
     spritePositions = new int[4];
     spritePositions[0] = 0;
@@ -43,13 +44,35 @@ Jugador::Jugador(float xInicial, float yInicial)
     /**POSICION INICIAL**/
     moveTo(Vector2f(xInicial, yInicial));
 
+    xJugadorAux = xInicial;
+    yJugadorAux = yInicial;
+
 }
 
 void Jugador::dibujar(RenderWindow * window)
 {
-    window->draw(*sprite);
-    // drawColliders(window);
-    animar();
+    if(!muriendo)
+    {
+        window->draw(*sprite);
+        // drawColliders(window);
+        animar();
+    }
+    else
+    {
+        sprite->setColor(Color::Red);
+        muriendo = true;
+
+        if(clockMuerte->getElapsedTime().asSeconds() < 2)
+        {
+            window->draw(*sprite);
+        }
+        else
+        {
+            muriendo = false;
+            sprite->setColor(Color(255, 255, 255));
+            reinicio = true;
+        }
+    }
 }
 
 void Jugador::setSprite()
@@ -147,15 +170,17 @@ void Jugador::procesarEventos(RenderWindow * window, Nivel * nivel)
 
 void Jugador::update(Nivel *nivel)
 {
+    if(nivel->checkearColisionesEnemigos(boxes[2]))
+    {
+        muriendo = true;
+        sprite->setColor(Color(200, 100, 100));
+        clockMuerte->restart();
+    }
+
     if(nivel->checkearColisionesLlaves(boxes[0]))
     {
         llaves++;
     }
-
-//    if(nivel->checkearColisionesPuertas(boxes[1], llaves) || nivel->checkearColisionesPuertas(boxes[3], llaves))
-//    {
-//        llaves--;
-//    }
 
     if(clockSalto->getElapsedTime().asSeconds() >= 2)
     {
@@ -261,4 +286,12 @@ void Jugador::setColliders()
     boxes.push_back(FloatRect(sprite->getPosition().x + 14.5, sprite->getPosition().y + 16, 3, 7)); // derecha
     boxes.push_back(FloatRect(sprite->getPosition().x + 12, sprite->getPosition().y + 22.5, 6, 3)); // abajo
     boxes.push_back(FloatRect(sprite->getPosition().x + 8, sprite->getPosition().y + 16, 3, 7)); // izquierda
+}
+
+void Jugador::reiniciar()
+{
+    muriendo = false;
+    reinicio = false;
+    moveTo(Vector2f(xJugadorAux, yJugadorAux));
+    sprite->setColor(Color(255, 255, 255));
 }

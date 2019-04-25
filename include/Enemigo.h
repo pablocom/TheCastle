@@ -21,11 +21,13 @@ class Enemigo
         void updateFrame();
         void moveTo(float left, float top);
         void initEnemigo();
+        bool checkearColision(FloatRect rect);
+        void reiniciar();
 
     protected:
 
     private:
-        float xInicial, xFinal;
+        float yAux, xAux, xInicial, xFinal;
 
         Texture *walk_txt;
         Sprite *walk_spr;

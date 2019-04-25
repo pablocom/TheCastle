@@ -18,11 +18,16 @@ class Mundo
         void handleEvents(RenderWindow *w);
         void handleInputs();
 
+
     protected:
 
     private:
+        bool pausa = false;
+
         Jugador *j1;
-        Nivel *nivelActivo;
+        int nivelActivo = 0;
+
+        std::vector<Nivel*> niveles;
 
         bool tSalto = false, tIzquierda = false, tDerecha = false;
 

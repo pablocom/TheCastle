@@ -6,7 +6,7 @@ Mundo::Mundo()
 
     j1 = new Jugador(10, 180);
 
-    nivelActivo = new Nivel();
+    niveles.push_back(new Nivel());
 
 }
 
@@ -17,17 +17,27 @@ Mundo::~Mundo()
 
 void Mundo::draw(RenderWindow *w)
 {
-    nivelActivo->draw(w);
+    niveles[nivelActivo]->draw(w);
     j1->dibujar(w);
 }
 
 void Mundo::updateMundo()
 {
-    j1->update(nivelActivo);
-    nivelActivo->updateNivel();
+    if(!j1->estaMuriendo())
+    {
+        j1->update(niveles[nivelActivo]);
+        niveles[nivelActivo]->updateNivel();
+    }
+
+    if(j1->pendienteDeReinicio())
+    {
+        niveles[nivelActivo]->reiniciar();
+        j1->reiniciar();
+        pausa = false;
+    }
 }
 
 void Mundo::handleEvents(RenderWindow *w)
 {
-    j1->procesarEventos(w, nivelActivo);
+    j1->procesarEventos(w, niveles[nivelActivo]);
 }
