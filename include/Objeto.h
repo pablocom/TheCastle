@@ -14,9 +14,9 @@ class Objeto
         void moveTo(float x, float y);
         bool checkearColisiones(FloatRect rect);
 
-    protected:
-
     private:
+        Texture *texture;
+        Sprite *sprite;
 };
 
 #endif // OBJETO_H

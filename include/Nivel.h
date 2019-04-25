@@ -8,6 +8,7 @@
 #include "Enemigo.h"
 #include "Llave.h"
 #include "Puerta.h"
+#include "Objeto.h"
 
 using namespace sf;
 
@@ -25,6 +26,7 @@ class Nivel
         void crearEnemigo(float yInicial, float xInicial, float xFinal, bool invertido);
         void crearLlave(float x, float y);
         void crearPuerta(float x, float y);
+        void crearObjeto(float x, float y, const char* tipo);
         void cargarMapa(const char* tilemap);
         void reiniciar();
 
@@ -38,6 +40,7 @@ class Nivel
         std::vector<Enemigo*> enemigos; /// Array con los enemigos que va a tener ese nivel
         std::vector<Llave*> llaves; /// Array con las llaves que va a tener ese nivel
         std::vector<Puerta*> puertas; /// Array con las puertas que va a tener ese nivel
+        std::vector<Objeto*> objetos; /// Array con las puertas que va a tener ese nivel
 
         Font *fontNexts;
         std::vector<Text*> nexts;

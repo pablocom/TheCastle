@@ -46,6 +46,11 @@ void Nivel::draw(RenderWindow *w)
         puertas[i]->draw(w);
     }
 
+    for(int i = 0; i < objetos.size(); i++)
+    {
+        objetos[i]->draw(w);
+    }
+
     for(int i = 0; i < nexts.size(); i++)
     {
         w->draw(*nexts[i]);
@@ -138,4 +143,9 @@ void Nivel::crearPuerta(float x, float y)
 void Nivel::cargarMapa(const char* tilemap)
 {
     mapa->load(tilemap);
+}
+
+void Nivel::crearObjeto(float x, float y, const char* tipo)
+{
+    objetos.push_back(new Objeto(x, y));
 }
