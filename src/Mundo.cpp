@@ -13,7 +13,7 @@ Mundo::Mundo()
     niveles[0]->crearEnemigo(196, 10, 250, true);
     niveles[0]->crearLlave(34, 170);
     niveles[0]->crearPuerta(46.5, 188);
-    niveles[0]->crearObjeto(50, 50, "prueba");
+    niveles[0]->crearObjeto(73, 95, 1);
 
 }
 

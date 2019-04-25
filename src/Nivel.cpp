@@ -145,7 +145,7 @@ void Nivel::cargarMapa(const char* tilemap)
     mapa->load(tilemap);
 }
 
-void Nivel::crearObjeto(float x, float y, const char* tipo)
+void Nivel::crearObjeto(float x, float y, int tipo)
 {
-    objetos.push_back(new Objeto(x, y));
+    objetos.push_back(new Objeto(x, y, tipo));
 }

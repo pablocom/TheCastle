@@ -8,7 +8,7 @@ using namespace sf;
 class Objeto
 {
     public:
-        Objeto(float xInicial, float yInicial);
+        Objeto(float xInicial, float yInicial, int tipo);
         virtual ~Objeto();
         void draw(RenderWindow *w);
         void moveTo(float x, float y);

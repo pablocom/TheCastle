@@ -1,12 +1,12 @@
 #include "Objeto.h"
 
-Objeto::Objeto(float xInicial, float yInicial)
+Objeto::Objeto(float xInicial, float yInicial, int tipo)
 {
     //ctor
     texture = new Texture();
-    texture->loadFromFile("assets/objetos/llave.png");
+    texture->loadFromFile("assets/objetos/anillo.png");
     sprite = new Sprite(*texture);
-    sprite->scale(.4, .4);
+    sprite->scale(.8, .8);
     moveTo(xInicial, yInicial);
 }
 

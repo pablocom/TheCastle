@@ -26,7 +26,7 @@ class Nivel
         void crearEnemigo(float yInicial, float xInicial, float xFinal, bool invertido);
         void crearLlave(float x, float y);
         void crearPuerta(float x, float y);
-        void crearObjeto(float x, float y, const char* tipo);
+        void crearObjeto(float x, float y, int tipo);
         void cargarMapa(const char* tilemap);
         void reiniciar();
 
