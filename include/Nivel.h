@@ -9,6 +9,7 @@
 #include "Llave.h"
 #include "Puerta.h"
 #include "Objeto.h"
+#include "Caja.h"
 
 using namespace sf;
 
@@ -26,7 +27,10 @@ class Nivel
         void crearEnemigo(float yInicial, float xInicial, float xFinal, bool invertido);
         void crearLlave(float x, float y);
         void crearPuerta(float x, float y);
+        void crearNext(float x, float y);
+        void crearCaja(float x, float y);
         void crearObjeto(float x, float y, int tipo);
+
         void cargarMapa(const char* tilemap);
         void reiniciar();
 
@@ -37,10 +41,11 @@ class Nivel
         int id;
 
         Mapa *mapa;
-        std::vector<Enemigo*> enemigos; /// Array con los enemigos que va a tener ese nivel
-        std::vector<Llave*> llaves; /// Array con las llaves que va a tener ese nivel
-        std::vector<Puerta*> puertas; /// Array con las puertas que va a tener ese nivel
-        std::vector<Objeto*> objetos; /// Array con las puertas que va a tener ese nivel
+        std::vector<Enemigo*> enemigos;
+        std::vector<Llave*> llaves;
+        std::vector<Puerta*> puertas;
+        std::vector<Objeto*> objetos;
+        std::vector<Caja*> cajas;
 
         Font *fontNexts;
         std::vector<Text*> nexts;

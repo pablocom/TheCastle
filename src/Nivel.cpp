@@ -7,19 +7,6 @@ Nivel::Nivel()
 
     fontNexts = new Font();
     fontNexts->loadFromFile("assets/maps/fullPack2025.ttf");
-
-    nexts.push_back(new Text());
-    nexts[0]->setFont(*fontNexts);
-    nexts[0]->setCharacterSize(9);
-    nexts[0]->setString("NEXT");
-    nexts[0]->setPosition(284, 206);
-
-    nexts.push_back(new Text());
-    nexts[1]->setFont(*fontNexts);
-    nexts[1]->setCharacterSize(9);
-    nexts[1]->setString("NEXT");
-    nexts[1]->setPosition(284, 158);
-
 }
 
 Nivel::~Nivel()
@@ -49,6 +36,11 @@ void Nivel::draw(RenderWindow *w)
     for(int i = 0; i < objetos.size(); i++)
     {
         objetos[i]->draw(w);
+    }
+
+    for(int i = 0; i < cajas.size(); i++)
+    {
+        cajas[i]->draw(w);
     }
 
     for(int i = 0; i < nexts.size(); i++)
@@ -148,4 +140,18 @@ void Nivel::cargarMapa(const char* tilemap)
 void Nivel::crearObjeto(float x, float y, int tipo)
 {
     objetos.push_back(new Objeto(x, y, tipo));
+}
+
+void Nivel::crearNext(float x, float y)
+{
+    nexts.push_back(new Text());
+    nexts[nexts.size()-1]->setFont(*fontNexts);
+    nexts[nexts.size()-1]->setCharacterSize(9);
+    nexts[nexts.size()-1]->setString("NEXT");
+    nexts[nexts.size()-1]->setPosition(x, y);
+}
+
+void Nivel::crearCaja(float x, float y)
+{
+    cajas.push_back(new Caja(x, y));
 }

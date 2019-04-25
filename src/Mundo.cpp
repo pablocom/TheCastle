@@ -14,6 +14,8 @@ Mundo::Mundo()
     niveles[0]->crearLlave(34, 170);
     niveles[0]->crearPuerta(46.5, 188);
     niveles[0]->crearObjeto(73, 95, 1);
+    niveles[0]->crearNext(284, 206);
+    niveles[0]->crearNext(284, 158);
 
     nivelActivo = 1;
 
@@ -28,6 +30,7 @@ Mundo::Mundo()
     niveles[1]->crearPuerta(-1, 138);
     niveles[1]->crearObjeto(190, 64, 1);
     niveles[1]->crearObjeto(236, 64, 1);
+    niveles[1]->crearCaja(80, 191);
 }
 
 Mundo::~Mundo()
