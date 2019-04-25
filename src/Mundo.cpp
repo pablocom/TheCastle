@@ -15,6 +15,17 @@ Mundo::Mundo()
     niveles[0]->crearPuerta(46.5, 188);
     niveles[0]->crearObjeto(73, 95, 1);
 
+    nivelActivo = 0;
+
+    /**NIVEL 2**/
+    niveles.push_back(new Nivel());
+    niveles[1]->cargarMapa("assets/maps/nivel2.tmx");
+    niveles[1]->crearEnemigo(102, 135, 220, false);
+    niveles[1]->crearEnemigo(196, 10, 250, true);
+    niveles[1]->crearLlave(34, 170);
+    niveles[1]->crearPuerta(46.5, 188);
+    niveles[1]->crearObjeto(73, 95, 1);
+
 }
 
 Mundo::~Mundo()
