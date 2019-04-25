@@ -298,7 +298,7 @@ void Jugador::reiniciar()
 
 bool Jugador::saleIzquierda()
 {
-    if(sprite->getPosition().x < -2)
+    if(sprite->getPosition().x < -10)
     {
         return true;
     }
@@ -307,7 +307,7 @@ bool Jugador::saleIzquierda()
 
 bool Jugador::saleDerecha()
 {
-    if(sprite->getPosition().x > 310)
+    if(sprite->getPosition().x > 300)
     {
         return true;
     }

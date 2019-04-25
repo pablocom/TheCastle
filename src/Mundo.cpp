@@ -15,15 +15,19 @@ Mundo::Mundo()
     niveles[0]->crearPuerta(46.5, 188);
     niveles[0]->crearObjeto(73, 95, 1);
 
+    nivelActivo = 1;
+
     /**NIVEL 2**/
     niveles.push_back(new Nivel());
     niveles[1]->cargarMapa("assets/maps/nivel2.tmx");
-    niveles[1]->crearEnemigo(102, 135, 220, false);
+    niveles[1]->crearEnemigo(86, 135, 220, false);
     niveles[1]->crearEnemigo(196, 10, 250, true);
-    niveles[1]->crearLlave(34, 170);
-    niveles[1]->crearPuerta(46.5, 188);
-    niveles[1]->crearObjeto(73, 95, 1);
-
+    niveles[1]->crearLlave(288, 180);
+    niveles[1]->crearLlave(288, 125);
+    niveles[1]->crearPuerta(302.5, 188);
+    niveles[1]->crearPuerta(-1, 138);
+    niveles[1]->crearObjeto(190, 64, 1);
+    niveles[1]->crearObjeto(236, 64, 1);
 }
 
 Mundo::~Mundo()
@@ -66,6 +70,7 @@ void Mundo::updateMundo()
         if(nivelActivo > 0)
         {
             nivelActivo--;
+            j1->moveTo(Vector2f(299, j1->getSprite().getPosition().y));
         }
     }
 }
