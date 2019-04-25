@@ -5,13 +5,6 @@ Nivel::Nivel()
     //ctor
     mapa = new Mapa();
 
-    enemigos.push_back(new Enemigo(102, 135, 220, false));
-    enemigos.push_back(new Enemigo(196, 10, 250, true));
-
-    llaves.push_back(new Llave(34, 170));
-
-    puertas.push_back(new Puerta(46.5, 188));
-
     fontNexts = new Font();
     fontNexts->loadFromFile("assets/maps/fullPack2025.ttf");
 
@@ -125,4 +118,24 @@ void Nivel::reiniciar()
     {
         enemigos[i]->reiniciar(); /// devolver al enemigo a la posicion en la que empezo (si sigue en el nivel)
     }
+}
+
+void Nivel::crearEnemigo(float yInicial, float xInicial, float xFinal, bool invertido)
+{
+    enemigos.push_back(new Enemigo(yInicial, xInicial, xFinal, invertido));
+}
+
+void Nivel::crearLlave(float x, float y)
+{
+    llaves.push_back(new Llave(x, y));
+}
+
+void Nivel::crearPuerta(float x, float y)
+{
+    puertas.push_back(new Puerta(x, y));
+}
+
+void Nivel::cargarMapa(const char* tilemap)
+{
+    mapa->load(tilemap);
 }

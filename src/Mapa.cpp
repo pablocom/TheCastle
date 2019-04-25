@@ -13,15 +13,13 @@ Mapa::Mapa()
     backgroundSprite->scale(1.5, 1.5);
     backgroundSprite->setColor(Color(120, 80, 120));
 
-    load();
-
 }
 
-void Mapa::load()
+void Mapa::load(const char* tilemap)
 {
 
     XMLDocument doc;
-    XMLError error = doc.LoadFile("assets/maps/nivel1.tmx");
+    XMLError error = doc.LoadFile(tilemap);
 
     if(error)
     {

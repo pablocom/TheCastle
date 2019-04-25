@@ -6,7 +6,13 @@ Mundo::Mundo()
 
     j1 = new Jugador(10, 180);
 
+    /**NIVEL 1**/
     niveles.push_back(new Nivel());
+    niveles[0]->cargarMapa("assets/maps/nivel1.tmx");
+    niveles[0]->crearEnemigo(102, 135, 220, false);
+    niveles[0]->crearEnemigo(196, 10, 250, true);
+    niveles[0]->crearLlave(34, 170);
+    niveles[0]->crearPuerta(46.5, 188);
 
 }
 

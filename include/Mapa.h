@@ -6,6 +6,7 @@
 
 #include "SFML/Graphics.hpp"
 #include <vector>
+#include <string>
 
 using namespace std;
 using namespace sf;
@@ -14,7 +15,7 @@ class Mapa
 {
     public:
         Mapa();
-        void load();
+        void load(const char *tilemap);
         void setTileMapSprites();
         void draw(RenderWindow * window);
         bool checkearColisiones(FloatRect rect);

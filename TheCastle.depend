@@ -95,17 +95,18 @@
 	"tinyxml.h"
 	<windows.h>
 
-1556200093 source:/home/pablo/Source/FV/TheCastle/src/Mapa.cpp
+1556217788 source:/home/pablo/Source/FV/TheCastle/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
-1556199277 /home/pablo/Source/FV/TheCastle/include/Mapa.h
+1556217834 /home/pablo/Source/FV/TheCastle/include/Mapa.h
 	<string>
 	<iostream>
 	"SFML/Graphics.hpp"
 	<vector>
+	<string>
 
-1556214893 source:/home/pablo/Source/FV/TheCastle/src/Mundo.cpp
+1556217951 source:/home/pablo/Source/FV/TheCastle/src/Mundo.cpp
 	"Mundo.h"
 
 1556213611 /home/pablo/Source/FV/TheCastle/include/Mundo.h
@@ -136,7 +137,7 @@
 1556129929 /home/pablo/Source/FV/TheCastle/include/Puerta.h
 	"SFML/Graphics.hpp"
 
-1556214637 /home/pablo/Source/FV/TheCastle/include/Nivel.h
+1556217897 /home/pablo/Source/FV/TheCastle/include/Nivel.h
 	"SFML/Graphics.hpp"
 	<vector>
 	"Mapa.h"
@@ -144,6 +145,6 @@
 	"Llave.h"
 	"Puerta.h"
 
-1556214296 source:/home/pablo/Source/FV/TheCastle/src/Nivel.cpp
+1556217925 source:/home/pablo/Source/FV/TheCastle/src/Nivel.cpp
 	"Nivel.h"
 

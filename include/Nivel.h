@@ -22,6 +22,10 @@ class Nivel
         bool checkearColisionesLlaves(FloatRect rect);
         bool checkearColisionesEnemigos(FloatRect rect);
         bool checkearColisionesPuertas(FloatRect rect, int nLlaves);
+        void crearEnemigo(float yInicial, float xInicial, float xFinal, bool invertido);
+        void crearLlave(float x, float y);
+        void crearPuerta(float x, float y);
+        void cargarMapa(const char* tilemap);
         void reiniciar();
 
 
