@@ -60,6 +60,18 @@ bool Nivel::checkearColisiones(FloatRect rect)
     return false;
 }
 
+bool Nivel::checkearColisionesLlaves(FloatRect rect)
+{
+    for(int i = 0; i < numLlaves; i++)
+    {
+        if(llaves[i]->checkearColisiones(rect))
+        {
+            return true;
+        }
+        return false;
+    }
+}
+
 void Nivel::updateNivel()
 {
     for(int i = 0; i < numEnemigos; i++) {

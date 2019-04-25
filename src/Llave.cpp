@@ -24,3 +24,12 @@ void Llave::moveTo(float x, float y)
 {
     sprite->setPosition(x, y);
 }
+
+bool Llave::checkearColisiones(FloatRect rect)
+{
+    if(sprite->getGlobalBounds().intersects(rect))
+    {
+        return true;
+    }
+    return false;
+}

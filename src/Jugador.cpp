@@ -147,6 +147,12 @@ void Jugador::procesarEventos(RenderWindow * window, Nivel * nivel)
 
 void Jugador::update(Nivel *nivel)
 {
+    if(nivel->checkearColisionesLlaves(boxes[0]))
+    {
+        cout << "Has cogido una llave" << endl;
+        llaves++;
+    }
+
     if(clockSalto->getElapsedTime().asSeconds() >= 2)
     {
         saltando = false;

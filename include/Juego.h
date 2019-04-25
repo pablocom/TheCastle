@@ -29,6 +29,9 @@ class Juego
         Clock * clock1;
         Time * time1;
 
+        /**JUEGO**/
+        int puntuacion = 0;
+
 };
 
 #endif // JUEGO_H

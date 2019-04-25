@@ -18,6 +18,7 @@ class Nivel
         void draw(RenderWindow *w);
         void updateNivel();
         bool checkearColisiones(FloatRect rect);
+        bool checkearColisionesLlaves(FloatRect rect);
 
 
     protected:

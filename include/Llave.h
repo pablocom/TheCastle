@@ -12,6 +12,7 @@ class Llave
         virtual ~Llave();
         void draw(RenderWindow *w);
         void moveTo(float x, float y);
+        bool checkearColisiones(FloatRect rect);
 
     private:
         Texture *texture;

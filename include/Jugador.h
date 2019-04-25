@@ -46,16 +46,21 @@ class Jugador
         Vector2f velocidad;
         Vector2f posicion;
 
+        /**SPRITE**/
         Texture * texture;
         Sprite * sprite;
 
         /**ANIMACION**/
         Clock * clock;
 
+        /**SALTO**/
         Clock * clockSalto;
 
         /**TESTING**/
         std::vector<RectangleShape> rectangles;
+
+        /****/
+        int llaves = 0;
 
 };
 
