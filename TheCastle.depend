@@ -112,9 +112,10 @@
 	"Jugador.h"
 	"Nivel.h"
 
-1556130994 /home/pablo/Source/FV/TheCastle/include/Enemigo.h
+1556195327 /home/pablo/Source/FV/TheCastle/include/Enemigo.h
 	"SFML/Graphics.hpp"
 	<iostream>
+	<vector>
 	"Mapa.h"
 	"Puerta.h"
 
@@ -134,8 +135,9 @@
 1556129929 /home/pablo/Source/FV/TheCastle/include/Puerta.h
 	"SFML/Graphics.hpp"
 
-1556193652 /home/pablo/Source/FV/TheCastle/include/Nivel.h
+1556195257 /home/pablo/Source/FV/TheCastle/include/Nivel.h
 	"SFML/Graphics.hpp"
+	<vector>
 	"Mapa.h"
 	"Enemigo.h"
 	"Llave.h"

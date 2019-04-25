@@ -80,7 +80,7 @@ void Enemigo::initEnemigo()
     }
 }
 
-void Enemigo::update(Mapa *mapa, Puerta **puertas)
+void Enemigo::update(Mapa *mapa, std::vector<Puerta*> puertas)
 {
     if(walk_spr->getPosition().x > xFinal || walk_spr->getPosition().x < xInicial || walk_spr->getGlobalBounds().intersects(puertas[0]->getSprite().getGlobalBounds()))
     {

@@ -2,6 +2,7 @@
 #define NIVEL_H
 
 #include "SFML/Graphics.hpp"
+#include <vector>
 
 #include "Mapa.h"
 #include "Enemigo.h"
@@ -25,12 +26,12 @@ class Nivel
 
     private:
         int id;
-
         Mapa *mapa;
-        int numEnemigos = 0, numLlaves = 0, numPuertas = 0;
-        Enemigo **enemigos; /// Array con los enemigos que va a tener ese mundo
-        Llave **llaves; /// Array con las llaves que va a tener ese mundo
-        Puerta **puertas;
+        std::vector<Enemigo*> enemigos; /// Array con los enemigos que va a tener ese nivel
+        std::vector<Llave*> llaves; /// Array con las llaves que va a tener ese nivel
+        std::vector<Puerta*> puertas; /// Array con las puertas que va a tener ese nivel
+
+
 
 };
 

@@ -3,6 +3,7 @@
 
 #include "SFML/Graphics.hpp"
 #include <iostream>
+#include <vector>
 
 #include "Mapa.h"
 #include "Puerta.h"
@@ -14,7 +15,7 @@ class Enemigo
     public:
         Enemigo(float yInicial, float xInicial, float xFinal, bool invertido);
         virtual ~Enemigo();
-        void update(Mapa *mapa, Puerta **puertas);
+        void update(Mapa *mapa, std::vector<Puerta*> puertas);
         void draw(RenderWindow *w);
         void animate();
         void updateFrame();

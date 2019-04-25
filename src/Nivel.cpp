@@ -5,18 +5,12 @@ Nivel::Nivel()
     //ctor
     mapa = new Mapa();
 
-    numEnemigos = 2;
-    enemigos = new Enemigo*[numPuertas];
-    enemigos[0] = new Enemigo(102, 135, 220, false);
-    enemigos[1] = new Enemigo(196, 10, 250, true);
+    enemigos.push_back(new Enemigo(102, 135, 220, false));
+    enemigos.push_back(new Enemigo(196, 10, 250, true));
 
-    numLlaves = 1;
-    llaves = new Llave*[1];
-    llaves[0] = new Llave(34, 170);
+    llaves.push_back(new Llave(34, 170));
 
-    numPuertas = 1;
-    puertas = new Puerta*[1];
-    puertas[0] = new Puerta(46.5, 188);
+    puertas.push_back(new Puerta(46.5, 188));
 }
 
 Nivel::~Nivel()
@@ -28,17 +22,17 @@ void Nivel::draw(RenderWindow *w)
 {
     mapa->draw(w);
 
-    for(int i = 0; i < numEnemigos; i++)
+    for(int i = 0; i < enemigos.size(); i++)
     {
         enemigos[i]->draw(w);
     }
 
-    for(int i = 0; i < numLlaves; i++)
+    for(int i = 0; i < llaves.size(); i++)
     {
         llaves[i]->draw(w);
     }
 
-    for(int i = 0; i < numPuertas; i++)
+    for(int i = 0; i < puertas.size(); i++)
     {
         puertas[i]->draw(w);
     }
@@ -50,7 +44,7 @@ bool Nivel::checkearColisiones(FloatRect rect)
     {
         return true;
     }
-    for(int i = 0; i < numPuertas; i++)
+    for(int i = 0; i < puertas.size(); i++)
     {
         if(puertas[i]->checkearColisiones(rect))
         {
@@ -62,7 +56,7 @@ bool Nivel::checkearColisiones(FloatRect rect)
 
 bool Nivel::checkearColisionesLlaves(FloatRect rect)
 {
-    for(int i = 0; i < numLlaves; i++)
+    for(int i = 0; i < llaves.size(); i++)
     {
         if(llaves[i]->checkearColisiones(rect))
         {
@@ -74,7 +68,7 @@ bool Nivel::checkearColisionesLlaves(FloatRect rect)
 
 void Nivel::updateNivel()
 {
-    for(int i = 0; i < numEnemigos; i++) {
+    for(int i = 0; i < enemigos.size(); i++) {
         enemigos[i]->update(mapa, puertas);
     }
 }
