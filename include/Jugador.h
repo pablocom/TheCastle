@@ -62,6 +62,8 @@ class Jugador
         /****/
         int llaves = 0;
 
+
+
 };
 
 #endif // JUGADOR_H

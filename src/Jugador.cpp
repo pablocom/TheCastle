@@ -149,9 +149,13 @@ void Jugador::update(Nivel *nivel)
 {
     if(nivel->checkearColisionesLlaves(boxes[0]))
     {
-        cout << "Has cogido una llave" << endl;
         llaves++;
     }
+
+//    if(nivel->checkearColisionesPuertas(boxes[1], llaves) || nivel->checkearColisionesPuertas(boxes[3], llaves))
+//    {
+//        llaves--;
+//    }
 
     if(clockSalto->getElapsedTime().asSeconds() >= 2)
     {
@@ -176,12 +180,12 @@ void Jugador::update(Nivel *nivel)
         saltoTotal = 0;
     }
 
-    if(nivel->checkearColisiones(boxes[1]) && velocidad.x > 0)
+    if(nivel->checkearColisiones(boxes[1]) && velocidad.x > 0 || nivel->checkearColisionesPuertas(boxes[1], llaves) && velocidad.x > 0)
     {
         velocidad.x = 0;
     }
 
-    if(nivel->checkearColisiones(boxes[3]) && velocidad.x < 0)
+    if(nivel->checkearColisiones(boxes[3]) && velocidad.x < 0 || nivel->checkearColisionesPuertas(boxes[3], llaves) && velocidad.x < 0)
     {
         velocidad.x = 0;
     }

@@ -82,9 +82,17 @@ void Enemigo::initEnemigo()
 
 void Enemigo::update(Mapa *mapa, std::vector<Puerta*> puertas)
 {
-    if(walk_spr->getPosition().x > xFinal || walk_spr->getPosition().x < xInicial || walk_spr->getGlobalBounds().intersects(puertas[0]->getSprite().getGlobalBounds()))
+    for(int i = 0; i < puertas.size(); i++)
     {
-        velocidad.x = -velocidad.x; /// invertimos la velocidad
+        if(walk_spr->getGlobalBounds().intersects(puertas[i]->getSprite().getGlobalBounds()))
+        {
+            velocidad.x = -velocidad.x; /// invertimos la velocidad
+        }
+    }
+
+    if(walk_spr->getPosition().x > xFinal || walk_spr->getPosition().x < xInicial)
+    {
+        velocidad.x = -velocidad.x;
     }
 
     walk_spr->setPosition(walk_spr->getPosition().x + velocidad.x, walk_spr->getPosition().y);

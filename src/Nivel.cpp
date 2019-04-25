@@ -44,10 +44,21 @@ bool Nivel::checkearColisiones(FloatRect rect)
     {
         return true;
     }
+
+    return false;
+}
+
+bool Nivel::checkearColisionesPuertas(FloatRect rect, int nLlaves)
+{
     for(int i = 0; i < puertas.size(); i++)
     {
         if(puertas[i]->checkearColisiones(rect))
         {
+            if(nLlaves > 0)
+            {
+                puertas.erase(std::remove(puertas.begin(), puertas.end(), puertas[i]), puertas.end());
+                return false; // no colisiona si no que la abre
+            }
             return true;
         }
     }
@@ -60,6 +71,7 @@ bool Nivel::checkearColisionesLlaves(FloatRect rect)
     {
         if(llaves[i]->checkearColisiones(rect))
         {
+            llaves.erase(std::remove(llaves.begin(), llaves.end(), llaves[i]), llaves.end());
             return true;
         }
         return false;

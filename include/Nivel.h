@@ -20,6 +20,7 @@ class Nivel
         void updateNivel();
         bool checkearColisiones(FloatRect rect);
         bool checkearColisionesLlaves(FloatRect rect);
+        bool checkearColisionesPuertas(FloatRect rect, int nLlaves);
 
 
     protected:
