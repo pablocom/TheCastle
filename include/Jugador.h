@@ -25,6 +25,8 @@ class Jugador
         void setColliders();
         void moveTo(Vector2f pos); //esto desplaza al jugador inmediatamente a la posicion indicada
         void reiniciar();
+        bool saleDerecha();
+        bool saleIzquierda();
 
         bool estaMuriendo() { return muriendo; }
         bool pendienteDeReinicio() { return reinicio; }

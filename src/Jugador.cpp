@@ -295,3 +295,21 @@ void Jugador::reiniciar()
     moveTo(Vector2f(xJugadorAux, yJugadorAux));
     sprite->setColor(Color(255, 255, 255));
 }
+
+bool Jugador::saleIzquierda()
+{
+    if(sprite->getPosition().x < -2)
+    {
+        return true;
+    }
+    return false;
+}
+
+bool Jugador::saleDerecha()
+{
+    if(sprite->getPosition().x > 310)
+    {
+        return true;
+    }
+    return false;
+}

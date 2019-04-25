@@ -15,8 +15,6 @@ Mundo::Mundo()
     niveles[0]->crearPuerta(46.5, 188);
     niveles[0]->crearObjeto(73, 95, 1);
 
-    nivelActivo = 0;
-
     /**NIVEL 2**/
     niveles.push_back(new Nivel());
     niveles[1]->cargarMapa("assets/maps/nivel2.tmx");
@@ -52,6 +50,23 @@ void Mundo::updateMundo()
         niveles[nivelActivo]->reiniciar();
         j1->reiniciar();
         pausa = false;
+    }
+
+    if(j1->saleDerecha())
+    {
+        if(nivelActivo < niveles.size() - 1)
+        {
+            nivelActivo++;
+            j1->moveTo(Vector2f(0, j1->getSprite().getPosition().y));
+        }
+    }
+
+    if(j1->saleIzquierda())
+    {
+        if(nivelActivo > 0)
+        {
+            nivelActivo--;
+        }
     }
 }
 
