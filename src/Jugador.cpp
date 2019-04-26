@@ -141,7 +141,7 @@ void Jugador::procesarEventos(RenderWindow * window, Nivel * nivel)
 
             if(Keyboard::isKeyPressed(Keyboard::Space))
             {
-                if(saltando == false && nivel->checkearColisiones(boxes[2])) // si no estaba saltando
+                if(nivel->checkearColisiones(boxes[2]) || nivel->checkearColisionesCajas(boxes[2]) && saltando == false) // si no estaba saltando
                 {
                     saltando = true;
                     clockSalto->restart();
@@ -189,7 +189,7 @@ void Jugador::update(Nivel *nivel)
 
     if(saltando == true)
     {
-        if(saltoTotal <= -32)
+        if(saltoTotal <= -37)
         {
             velocidad.y = 0;
         }
@@ -216,7 +216,7 @@ void Jugador::update(Nivel *nivel)
     }
 
 
-    if(nivel->checkearColisiones(boxes[2]) && velocidad.y > 0) // choca por abajo y esta bajando
+    if(nivel->checkearColisiones(boxes[2]) && velocidad.y > 0 || nivel->checkearColisionesCajas(boxes[2]) && velocidad.y > 0) // choca por abajo y esta bajando
     {
         sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y);
     }
@@ -228,6 +228,9 @@ void Jugador::update(Nivel *nivel)
     {
         sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y + velocidad.y);
     }
+
+    nivel->checkearColisionesCajasDerecha(boxes[1], velocidad.x);
+    nivel->checkearColisionesCajasIzquierda(boxes[3], velocidad.x);
 
     updateColliders();
     updateRectangles();

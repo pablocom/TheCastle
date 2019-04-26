@@ -27,7 +27,7 @@
 	<vector>
 	"Nivel.h"
 
-1556229589 source:/home/pablo/Source/FV/TheCastle/src/Jugador.cpp
+1556273332 source:/home/pablo/Source/FV/TheCastle/src/Jugador.cpp
 	<iostream>
 	"Jugador.h"
 
@@ -106,7 +106,7 @@
 	<vector>
 	<string>
 
-1556231910 source:/home/pablo/Source/FV/TheCastle/src/Mundo.cpp
+1556272638 source:/home/pablo/Source/FV/TheCastle/src/Mundo.cpp
 	"Mundo.h"
 
 1556213611 /home/pablo/Source/FV/TheCastle/include/Mundo.h
@@ -137,7 +137,7 @@
 1556129929 /home/pablo/Source/FV/TheCastle/include/Puerta.h
 	"SFML/Graphics.hpp"
 
-1556231619 /home/pablo/Source/FV/TheCastle/include/Nivel.h
+1556273364 /home/pablo/Source/FV/TheCastle/include/Nivel.h
 	"SFML/Graphics.hpp"
 	<vector>
 	"Mapa.h"
@@ -147,7 +147,7 @@
 	"Objeto.h"
 	"Caja.h"
 
-1556231746 source:/home/pablo/Source/FV/TheCastle/src/Nivel.cpp
+1556273258 source:/home/pablo/Source/FV/TheCastle/src/Nivel.cpp
 	"Nivel.h"
 
 1556219598 source:/home/pablo/Source/FV/TheCastle/src/Objeto.cpp
@@ -156,10 +156,10 @@
 1556219605 /home/pablo/Source/FV/TheCastle/include/Objeto.h
 	"SFML/Graphics.hpp"
 
-1556231828 source:/home/pablo/Source/FV/TheCastle/src/Caja.cpp
+1556270847 source:/home/pablo/Source/FV/TheCastle/src/Caja.cpp
 	"Caja.h"
 
-1556231143 /home/pablo/Source/FV/TheCastle/include/Caja.h
+1556272044 /home/pablo/Source/FV/TheCastle/include/Caja.h
 	"SFML/Graphics.hpp"
 
 1556230840 source:/home/pablo/Source/FV/TheCastle/src/Hud.cpp

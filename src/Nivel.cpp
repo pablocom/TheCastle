@@ -155,3 +155,47 @@ void Nivel::crearCaja(float x, float y)
 {
     cajas.push_back(new Caja(x, y));
 }
+
+bool Nivel::checkearColisionesCajas(FloatRect rect)
+{
+    for(int i = 0; i < cajas.size(); i++)
+    {
+        if(cajas[i]->checkearColisiones(rect))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Nivel::checkearColisionesCajasDerecha(FloatRect rect, float velocidadX)
+{
+    for(int i = 0; i < cajas.size(); i++)
+    {
+        if(cajas[i]->checkearColisiones(rect))
+        {
+            if(velocidadX > 0)
+            {
+                cajas[i]->moveTo(cajas[i]->getPosition().x + velocidadX, cajas[i]->getPosition().y);
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Nivel::checkearColisionesCajasIzquierda(FloatRect rect, float velocidadX)
+{
+    for(int i = 0; i < cajas.size(); i++)
+    {
+        if(cajas[i]->checkearColisiones(rect))
+        {
+            if(velocidadX < 0)
+            {
+                cajas[i]->moveTo(cajas[i]->getPosition().x + velocidadX, cajas[i]->getPosition().y);
+            }
+            return true;
+        }
+    }
+    return false;
+}

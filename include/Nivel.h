@@ -24,6 +24,9 @@ class Nivel
         bool checkearColisionesLlaves(FloatRect rect);
         bool checkearColisionesEnemigos(FloatRect rect);
         bool checkearColisionesPuertas(FloatRect rect, int nLlaves);
+        bool checkearColisionesCajas(FloatRect rect);
+        bool checkearColisionesCajasDerecha(FloatRect rect, float velocidadX);
+        bool checkearColisionesCajasIzquierda(FloatRect rect, float velocidadX);
         void crearEnemigo(float yInicial, float xInicial, float xFinal, bool invertido);
         void crearLlave(float x, float y);
         void crearPuerta(float x, float y);
