@@ -12,10 +12,16 @@ class Caja
         virtual ~Caja();
         void draw(RenderWindow *w);
         void moveTo(float x, float y);
+
         bool checkearColisiones(FloatRect rect);
+
         Vector2f getPosition() { return sprite->getPosition(); }
+        Sprite getSprite() { return *sprite; }
+
 
     private:
+
+
         Texture *texture;
         Sprite *sprite;
 

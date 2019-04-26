@@ -84,13 +84,23 @@ void Enemigo::initEnemigo()
     }
 }
 
-void Enemigo::update(Mapa *mapa, std::vector<Puerta*> puertas)
+void Enemigo::update(Mapa *mapa, std::vector<Puerta*> puertas, std::vector<Caja*> cajas)
 {
+
+
     for(unsigned i = 0; i < puertas.size(); i++)
     {
         if(walk_spr->getGlobalBounds().intersects(puertas[i]->getSprite().getGlobalBounds()))
         {
             velocidad.x = -velocidad.x; /// invertimos la velocidad
+        }
+    }
+
+    for(unsigned i = 0; i < cajas.size(); i++)
+    {
+        if(walk_spr->getGlobalBounds().intersects(cajas[i]->getSprite().getGlobalBounds()))
+        {
+            velocidad.x = -velocidad.x;
         }
     }
 

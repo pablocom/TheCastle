@@ -93,7 +93,7 @@ void Nivel::updateNivel()
 {
     for(int i = 0; i < enemigos.size(); i++)
     {
-        enemigos[i]->update(mapa, puertas);
+        enemigos[i]->update(mapa, puertas, cajas);
     }
 }
 

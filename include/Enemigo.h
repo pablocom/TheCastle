@@ -7,6 +7,7 @@
 
 #include "Mapa.h"
 #include "Puerta.h"
+#include "Caja.h"
 
 using namespace sf;
 
@@ -15,7 +16,7 @@ class Enemigo
     public:
         Enemigo(float yInicial, float xInicial, float xFinal, bool invertido);
         virtual ~Enemigo();
-        void update(Mapa *mapa, std::vector<Puerta*> puertas);
+        void update(Mapa *mapa, std::vector<Puerta*> puertas, std::vector<Caja*> cajas);
         void draw(RenderWindow *w);
         void animate();
         void updateFrame();
