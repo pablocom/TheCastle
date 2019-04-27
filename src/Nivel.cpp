@@ -178,6 +178,7 @@ bool Nivel::checkearColisionesCajasDerecha(FloatRect rect, float velocidadX)
             {
                 cajas[i]->moveTo(cajas[i]->getPosition().x + velocidadX, cajas[i]->getPosition().y);
             }
+//            cajas[i]->setMoviendo(0);
             return true;
         }
     }

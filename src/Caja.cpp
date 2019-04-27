@@ -1,4 +1,5 @@
 #include "Caja.h"
+#include <iostream>
 
 Caja::Caja(float xInicial, float yInicial)
 {
@@ -18,10 +19,16 @@ Caja::~Caja()
 void Caja::draw(RenderWindow *w)
 {
     w->draw(*sprite);
+    moviendo = 0;/// al final de cada iteacion se seteara a 0 como que no se esta moviendo
 }
 
 void Caja::moveTo(float x, float y)
 {
+    if(x != sprite->getPosition().x)
+    {
+        moviendo = 1;
+    }
+
     sprite->setPosition(x, y);
 }
 
@@ -32,4 +39,14 @@ bool Caja::checkearColisiones(FloatRect rect)
         return true;
     }
     return false;
+}
+
+int Caja::getMoviendo()
+{
+    return moviendo;
+}
+
+void Caja::setMoviendo(int x)
+{
+    moviendo = x;
 }

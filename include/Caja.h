@@ -12,6 +12,8 @@ class Caja
         virtual ~Caja();
         void draw(RenderWindow *w);
         void moveTo(float x, float y);
+        void setMoviendo(int x);
+        int getMoviendo();
 
         bool checkearColisiones(FloatRect rect);
 
@@ -20,7 +22,7 @@ class Caja
 
 
     private:
-
+        int moviendo = 0; // 0 false 1 true
 
         Texture *texture;
         Sprite *sprite;
