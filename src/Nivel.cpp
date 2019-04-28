@@ -93,7 +93,14 @@ void Nivel::updateNivel()
 {
     for(int i = 0; i < enemigos.size(); i++)
     {
-        enemigos[i]->update(mapa, puertas, cajas);
+        if(enemigos[i]->getDeadSpriteActive() == 14)
+        {
+            enemigos.erase(std::remove(enemigos.begin(), enemigos.end(), enemigos[i]), enemigos.end());
+        }
+        else
+        {
+            enemigos[i]->update(mapa, puertas, cajas);
+        }
     }
 }
 

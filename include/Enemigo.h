@@ -25,18 +25,27 @@ class Enemigo
         bool checkearColision(FloatRect rect);
         void reiniciar();
 
+        int getDeadSpriteActive() { return dead_sprite_active; }
+
     protected:
 
     private:
         float yAux, xAux, xInicial, xFinal;
+        bool muriendo = false, muerto = false;
+
 
         Texture *walk_txt;
         Sprite *walk_spr;
-        int walk_sprite_active = 0;
+
+        Texture *dead_txt;
+        Sprite *dead_spr;
+
+        int walk_sprite_active = 0, dead_sprite_active = 0;
 
         Vector2f velocidad;
 
         Clock *clockAnimation;
+        Clock *clockMuerte;
 
 };
 
