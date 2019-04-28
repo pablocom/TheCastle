@@ -17,7 +17,7 @@ Mundo::Mundo()
     niveles[0]->crearNext(284, 206);
     niveles[0]->crearNext(284, 158);
 
-    nivelActivo = 1;
+    // nivelActivo = 1;
 
     /**NIVEL 2**/
     niveles.push_back(new Nivel());
