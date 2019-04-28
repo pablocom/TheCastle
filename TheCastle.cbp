@@ -51,6 +51,7 @@
 		<Unit filename="include/Mundo.h" />
 		<Unit filename="include/Nivel.h" />
 		<Unit filename="include/Objeto.h" />
+		<Unit filename="include/Pincho.h" />
 		<Unit filename="include/Puerta.h" />
 		<Unit filename="include/Teclado.h" />
 		<Unit filename="lib/tinyxml/tinystr.cpp" />
@@ -72,6 +73,7 @@
 		<Unit filename="src/Mundo.cpp" />
 		<Unit filename="src/Nivel.cpp" />
 		<Unit filename="src/Objeto.cpp" />
+		<Unit filename="src/Pincho.cpp" />
 		<Unit filename="src/Puerta.cpp" />
 		<Unit filename="src/Teclado.cpp" />
 		<Extensions>

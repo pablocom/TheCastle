@@ -43,6 +43,11 @@ void Nivel::draw(RenderWindow *w)
         cajas[i]->draw(w);
     }
 
+    for(int i = 0; i < pinchos.size(); i++)
+    {
+        pinchos[i]->draw(w);
+    }
+
     for(int i = 0; i < nexts.size(); i++)
     {
         w->draw(*nexts[i]);
@@ -78,15 +83,18 @@ bool Nivel::checkearColisionesPuertas(FloatRect rect, int nLlaves)
 
 bool Nivel::checkearColisionesLlaves(FloatRect rect)
 {
+//    std::cout << "Cantidad de llaves -> " << llaves.size() << std::endl;
+
     for(int i = 0; i < llaves.size(); i++)
     {
         if(llaves[i]->checkearColisiones(rect))
         {
+            std::cout << "Colisiona con la llave numero -> " << i << std::endl;
             llaves.erase(std::remove(llaves.begin(), llaves.end(), llaves[i]), llaves.end());
             return true;
         }
-        return false;
     }
+    return false;
 }
 
 void Nivel::updateNivel()
@@ -149,6 +157,11 @@ void Nivel::crearObjeto(float x, float y, int tipo)
     objetos.push_back(new Objeto(x, y, tipo));
 }
 
+void Nivel::crearPincho(float x, float y)
+{
+    pinchos.push_back(new Pincho(x, y));
+}
+
 void Nivel::crearNext(float x, float y)
 {
     nexts.push_back(new Text());
@@ -202,6 +215,18 @@ bool Nivel::checkearColisionesCajasIzquierda(FloatRect rect, float velocidadX)
             {
                 cajas[i]->moveTo(cajas[i]->getPosition().x + velocidadX, cajas[i]->getPosition().y);
             }
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Nivel::checkearColisionesPinchos(FloatRect rect)
+{
+    for(int i = 0; i < pinchos.size(); i++)
+    {
+        if(pinchos[i]->checkearColisiones(rect))
+        {
             return true;
         }
     }

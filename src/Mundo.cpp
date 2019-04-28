@@ -31,6 +31,10 @@ Mundo::Mundo()
     niveles[1]->crearObjeto(190, 64, 1);
     niveles[1]->crearObjeto(236, 64, 1);
     niveles[1]->crearCaja(80, 191);
+    niveles[1]->crearPincho(15, 79);
+    niveles[1]->crearPincho(31, 79);
+    niveles[1]->crearPincho(95, 79);
+    niveles[1]->crearPincho(111, 79);
 }
 
 Mundo::~Mundo()

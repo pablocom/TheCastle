@@ -84,7 +84,7 @@ void Enemigo::animate()
     }
     else
     {
-        if(clockMuerte->getElapsedTime().asSeconds() > 0.05)
+        if(clockMuerte->getElapsedTime().asSeconds() > 0.02)
         {
 
             if(dead_sprite_active == 15)
@@ -149,7 +149,6 @@ void Enemigo::update(Mapa *mapa, std::vector<Puerta*> puertas, std::vector<Caja*
         {
             if(cajas[i]->getMoviendo() != 0)
             {
-                std::cout << "Matando enemigo" << std::endl;
                 velocidad.x = 0;
                 muriendo = true;
                 dead_spr->setPosition(walk_spr->getPosition().x, walk_spr->getPosition().y);
@@ -170,7 +169,7 @@ void Enemigo::update(Mapa *mapa, std::vector<Puerta*> puertas, std::vector<Caja*
 
 bool Enemigo::checkearColision(FloatRect rect)
 {
-    if(walk_spr->getGlobalBounds().intersects(rect))
+    if(walk_spr->getGlobalBounds().intersects(rect) && muriendo == false)
     {
         return true;
     }

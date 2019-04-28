@@ -170,7 +170,7 @@ void Jugador::procesarEventos(RenderWindow * window, Nivel * nivel)
 
 void Jugador::update(Nivel *nivel)
 {
-    if(nivel->checkearColisionesEnemigos(boxes[2]))
+    if(nivel->checkearColisionesEnemigos(boxes[2]) || nivel->checkearColisionesPinchos(boxes[0]))
     {
         muriendo = true;
         sprite->setColor(Color(200, 100, 100));
