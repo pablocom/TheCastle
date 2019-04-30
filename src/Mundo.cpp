@@ -4,7 +4,7 @@ Mundo::Mundo()
 {
     //ctor
     hud = new Hud();
-
+    clockGameOver = new Clock();
     j1 = new Jugador(10, 180);
 
     /**NIVEL 1**/
@@ -36,6 +36,16 @@ Mundo::Mundo()
     niveles[1]->crearPincho(31, 79);
     niveles[1]->crearPincho(95, 79);
     niveles[1]->crearPincho(111, 79);
+
+    font = new Font();
+    font->loadFromFile("assets/maps/fullPack2025.ttf");
+    text = new Text();
+    text->setFont(*font);
+    text->setCharacterSize(18);
+    text->setString("GAME OVER");
+    text->setPosition(92, 110);
+    text->setColor(Color::Red);
+
 }
 
 Mundo::~Mundo()
@@ -45,44 +55,65 @@ Mundo::~Mundo()
 
 void Mundo::draw(RenderWindow *w)
 {
+
     niveles[nivelActivo]->draw(w);
     j1->dibujar(w);
     hud->draw(w);
+    if(gameOver)
+    {
+        w->draw(*text);
+    }
 }
 
 void Mundo::updateMundo()
 {
-    if(!j1->estaMuriendo())
+    if(!gameOver)
     {
-        j1->update(niveles[nivelActivo]);
-        niveles[nivelActivo]->updateNivel();
-    }
-
-    if(j1->pendienteDeReinicio())
-    {
-        niveles[nivelActivo]->reiniciar();
-        j1->reiniciar();
-        pausa = false;
-    }
-
-    if(j1->saleDerecha())
-    {
-        if(nivelActivo < niveles.size() - 1)
+        if(!j1->estaMuriendo())
         {
-            nivelActivo++;
-            j1->moveTo(Vector2f(0, j1->getSprite().getPosition().y));
+            j1->update(niveles[nivelActivo]);
+            niveles[nivelActivo]->updateNivel();
+        }
+
+        if(j1->pendienteDeReinicio())
+        {
+            niveles[nivelActivo]->reiniciar();
+            j1->reiniciar();
+            pausa = false;
+        }
+
+        if(j1->saleDerecha())
+        {
+            if(nivelActivo < niveles.size() - 1)
+            {
+                nivelActivo++;
+                j1->moveTo(Vector2f(0, j1->getSprite().getPosition().y));
+            }
+        }
+
+        if(j1->saleIzquierda())
+        {
+            if(nivelActivo > 0)
+            {
+                nivelActivo--;
+                j1->moveTo(Vector2f(299, j1->getSprite().getPosition().y));
+            }
+        }
+        hud->update(j1);
+
+        if(j1->getVidas() == 0)
+        {
+            gameOver = true;
+            clockGameOver->restart();
         }
     }
-
-    if(j1->saleIzquierda())
+    else
     {
-        if(nivelActivo > 0)
+        if(clockGameOver->getElapsedTime().asSeconds() > 3)
         {
-            nivelActivo--;
-            j1->moveTo(Vector2f(299, j1->getSprite().getPosition().y));
+            pendienteReinicio = true;
         }
     }
-    hud->update(j1);
 }
 
 void Mundo::handleEvents(RenderWindow *w)

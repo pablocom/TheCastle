@@ -18,6 +18,13 @@ Juego::Juego(Vector2i dimension, std::string title)
 
     mundo = new Mundo();
 
+    txt_portada = new Texture();
+    txt_portada->loadFromFile("assets/portada.png");
+    spr_portada = new Sprite(*txt_portada);
+    spr_portada->scale(.5, .5);
+
+    evento = new Event();
+
     gameLoop();
 }
 
@@ -43,17 +50,58 @@ void Juego::dibujar()
 {
     window->clear();
 
-    mundo->draw(window);
+    switch(estado)
+    {
+    case 0:
+        window->draw(*spr_portada);
+        break;
+    case 1:
+        mundo->draw(window);
+        break;
+    }
 
     window->display();
 }
 
 void Juego::update()
 {
-    mundo->updateMundo();
+    if(estado == 1)
+    {
+        mundo->updateMundo();
+    }
+    if(mundo->getPendienteReinicio())
+    {
+        mundo = new Mundo();
+    }
 }
 
 void Juego::procesarEventos()
 {
-    mundo->handleEvents(window);
+    switch(estado)
+    {
+        case 0:
+            while(window->pollEvent(*evento))
+            {
+                // We are going to listen the different events
+                switch(evento->type)
+                {
+                    case Event::Closed:
+                        exit(1);
+                        break;
+
+                    case Event::KeyPressed:
+
+                        if(Keyboard::isKeyPressed(Keyboard::Space))
+                        {
+                            std::cout << "Comenzando el juego" << std::endl;
+                            estado = 1;
+                        }
+                        break;
+                }
+            break;
+        case 1:
+            mundo->handleEvents(window);
+            break;
+        }
+    }
 }

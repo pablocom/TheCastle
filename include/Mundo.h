@@ -19,11 +19,17 @@ class Mundo
         void handleEvents(RenderWindow *w);
         void handleInputs();
 
+        bool getPendienteReinicio() {return pendienteReinicio;}
+
 
     protected:
 
     private:
         bool pausa = false;
+
+        Clock *clockGameOver;
+        bool gameOver = false;
+        bool pendienteReinicio = false;
 
         Jugador *j1;
         int nivelActivo = 0;
@@ -32,7 +38,10 @@ class Mundo
 
         bool tSalto = false, tIzquierda = false, tDerecha = false;
 
-        Hud * hud;
+        Hud *hud;
+
+        Font *font;
+        Text *text;
 
 };
 
