@@ -38,7 +38,9 @@ class Nivel
         void crearPincho(float x, float y);
         void crearObjeto(float x, float y, int tipo);
 
+
         void cargarMapa(const char* tilemap);
+        int getNumPuertas() { return puertas.size(); }
         void reiniciar();
 
 

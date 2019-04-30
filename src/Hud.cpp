@@ -25,10 +25,22 @@ Hud::Hud()
     texts[2]->setString("0000");
     texts[2]->setPosition(60, 13);
 
+    texts.push_back(new Text());
+    texts[3]->setFont(*font);
+    texts[3]->setCharacterSize(9);
+    texts[3]->setString("KEYS ");
+    texts[3]->setPosition(120, 2);
+
     txt_vida = new Texture();
     txt_vida->loadFromFile("assets/objetos/corazon.png");
     spr_vida = new Sprite(*txt_vida);
     spr_vida->scale(.025, .025);
+
+    txt_llaves = new Texture();
+    txt_llaves->loadFromFile("assets/objetos/llave.png");
+    spr_llaves = new Sprite(*txt_llaves);
+    spr_llaves->scale(.4, .4);
+    spr_llaves->setPosition(160, 2);
 }
 
 Hud::~Hud()
@@ -57,4 +69,9 @@ void Hud::draw(RenderWindow *w)
         spr_vida->setPosition(50 + i * 15, spr_vida->getPosition().y);
     }
 
+    for(int i = 0; i < llaves; i++)
+    {
+        w->draw(*spr_llaves);
+        spr_llaves->setPosition(160 + i * 15, spr_llaves->getPosition().y);
+    }
 }

@@ -171,6 +171,8 @@ void Jugador::procesarEventos(RenderWindow * window, Nivel * nivel)
 
 void Jugador::update(Nivel *nivel)
 {
+    int numPuertasAux = nivel->getNumPuertas();
+
     if(nivel->checkearColisionesEnemigos(boxes[2]) || nivel->checkearColisionesPinchos(boxes[0]))
     {
         muriendo = true;
@@ -241,6 +243,11 @@ void Jugador::update(Nivel *nivel)
 
     updateColliders();
     updateRectangles();
+
+    if(numPuertasAux > nivel->getNumPuertas())
+    {
+        llaves--;
+    }
 }
 
 /**TESTING**/
