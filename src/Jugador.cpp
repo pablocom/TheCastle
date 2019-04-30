@@ -225,6 +225,19 @@ void Jugador::update(Nivel *nivel)
     }
 
 
+    /**LIMITE DE VENTANA**/
+    if(sprite->getPosition().x < -10)
+    {
+        velocidad.x = 0;
+        sprite->setPosition(sprite->getPosition().x + 1, sprite->getPosition().y);
+    }
+    if(sprite->getPosition().x > 301)
+    {
+        velocidad.x = 0;
+        sprite->setPosition(sprite->getPosition().x - 1, sprite->getPosition().y);
+    }
+
+
     if(nivel->checkearColisiones(boxes[2]) && velocidad.y > 0 || nivel->checkearColisionesCajas(boxes[2]) && velocidad.y > 0) // choca por abajo y esta bajando
     {
         sprite->setPosition(sprite->getPosition().x + velocidad.x, sprite->getPosition().y);
