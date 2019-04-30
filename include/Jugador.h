@@ -32,6 +32,9 @@ class Jugador
         bool pendienteDeReinicio() { return reinicio; }
         Sprite getSprite () { return *sprite; }
         std::vector<Rect<float>> getColliders() { return boxes; }
+        int getVidas() { return vidas; }
+        int getPuntuacion() { return puntuacion; }
+        int getLlaves() { return llaves; }
 
     private:
         Event * evento;
@@ -72,6 +75,8 @@ class Jugador
         Clock *clockMuerte;
         bool muriendo = false;
         bool reinicio = false;
+
+        int puntuacion = 0, vidas = 4;
 
 };
 

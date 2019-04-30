@@ -62,6 +62,7 @@ void Jugador::dibujar(RenderWindow * window)
         sprite->setColor(Color::Red);
         muriendo = true;
 
+
         if(clockMuerte->getElapsedTime().asSeconds() < 2)
         {
             window->draw(*sprite);
@@ -180,6 +181,12 @@ void Jugador::update(Nivel *nivel)
     if(nivel->checkearColisionesLlaves(boxes[0]))
     {
         llaves++;
+        puntuacion += 100;
+    }
+
+    if(nivel->checkearColisionesObjetos(boxes[0]))
+    {
+        puntuacion += 450;
     }
 
     if(clockSalto->getElapsedTime().asSeconds() >= 2)
@@ -293,6 +300,7 @@ void Jugador::setColliders()
 
 void Jugador::reiniciar()
 {
+    vidas--;
     muriendo = false;
     reinicio = false;
     moveTo(Vector2f(xJugadorAux, yJugadorAux));

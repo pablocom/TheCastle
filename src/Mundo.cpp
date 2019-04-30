@@ -3,6 +3,7 @@
 Mundo::Mundo()
 {
     //ctor
+    hud = new Hud();
 
     j1 = new Jugador(10, 180);
 
@@ -46,6 +47,7 @@ void Mundo::draw(RenderWindow *w)
 {
     niveles[nivelActivo]->draw(w);
     j1->dibujar(w);
+    hud->draw(w);
 }
 
 void Mundo::updateMundo()
@@ -80,6 +82,7 @@ void Mundo::updateMundo()
             j1->moveTo(Vector2f(299, j1->getSprite().getPosition().y));
         }
     }
+    hud->update(j1);
 }
 
 void Mundo::handleEvents(RenderWindow *w)

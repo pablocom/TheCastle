@@ -4,6 +4,7 @@
 #include "SFML/Graphics.hpp"
 #include "Jugador.h"
 #include "Nivel.h"
+#include "Hud.h"
 
 using namespace sf;
 using namespace std;
@@ -30,6 +31,8 @@ class Mundo
         std::vector<Nivel*> niveles;
 
         bool tSalto = false, tIzquierda = false, tDerecha = false;
+
+        Hud * hud;
 
 };
 

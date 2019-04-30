@@ -97,6 +97,20 @@ bool Nivel::checkearColisionesLlaves(FloatRect rect)
     return false;
 }
 
+int Nivel::checkearColisionesObjetos(FloatRect rect)
+{
+    for(int i = 0; i < objetos.size(); i++)
+    {
+        if(objetos[i]->checkearColisiones(rect))
+        {
+            std::cout << "colisiona con item numero -> " << i << std::endl;
+            objetos.erase(std::remove(objetos.begin(), objetos.end(), objetos[i]), objetos.end());
+            return true;
+        }
+    }
+    return false;
+}
+
 void Nivel::updateNivel()
 {
     for(int i = 0; i < enemigos.size(); i++)
